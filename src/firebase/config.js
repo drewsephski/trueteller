@@ -38,4 +38,24 @@ export const saveTestResult = async (name, personalityType, answers) => {
   }
 };
 
+// Function to save contact form data to Firebase
+export const saveContactMessage = async (formData) => {
+  try {
+    const docRef = await addDoc(collection(db, 'contactMessages'), {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      timestamp: serverTimestamp(),
+      createdAt: new Date().toISOString(),
+      status: 'new' // to track if the message has been read/responded to
+    });
+    
+    console.log('Contact message saved with ID: ', docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error saving contact message: ', error);
+    throw error;
+  }
+};
+
 export { db }; 

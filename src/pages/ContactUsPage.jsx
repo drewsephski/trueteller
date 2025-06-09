@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { saveContactMessage } from '../firebase/config';
 import './ContactUsPage.css';
 
 const ContactUsPage = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      await saveContactMessage(formData);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' }); // Reset form
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -17,17 +46,60 @@ const ContactUsPage = () => {
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" required />
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              value={formData.name}
+              onChange={handleInputChange}
+              required 
+              disabled={isSubmitting}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              value={formData.email}
+              onChange={handleInputChange}
+              required 
+              disabled={isSubmitting}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              value={formData.message}
+              onChange={handleInputChange}
+              required
+              disabled={isSubmitting}
+            ></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">Send Message</button>
+          
+          {submitStatus === 'success' && (
+            <div className="status-message success">
+              Thank you for your message! We will get back to you soon.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="status-message error">
+              Sorry, there was an error sending your message. Please try again.
+            </div>
+          )}
+          
+          <button 
+            type="submit" 
+            className="btn btn-primary" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
         </form>
       </div>
     </div>
