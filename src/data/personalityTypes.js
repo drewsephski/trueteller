@@ -116,7 +116,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are deeply committed to your children\'s growth, aiming to raise them to be independent and compassionate individuals with strong values.',
     },
     culturalConnections: {
-      famousMatches: ['Martin Luther King Jr.', 'Nelson Mandela', 'Lady Gaga', 'Atticus Finch (To Kill a Mockingbird)'],
+      famousMatches: ['Martin Luther King Jr.', 'Nelson Mandela', 'Lady Gaga', 'J-Hope'],
     },
   },
   INTJ: {
@@ -236,7 +236,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are warm, flexible, and encourage your children to be individuals. You create a loving and creative home environment.',
     },
     culturalConnections: {
-      famousMatches: ['Michael Jackson', 'Britney Spears', 'Frida Kahlo', 'Harry Potter'],
+      famousMatches: ['Michael Jackson', 'Britney Spears', 'Jeon Jungkook', 'Harry Potter'],
     },
   },
   INFP: {
@@ -276,7 +276,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are loving, supportive, and focused on raising children who are true to themselves. You foster an environment of creativity and emotional honesty.',
     },
     culturalConnections: {
-      famousMatches: ['William Shakespeare', 'J.R.R. Tolkien', 'Johnny Depp', 'Frodo Baggins (The Lord of the Rings)'],
+      famousMatches: ['William Shakespeare', 'Kim Taehyung(V)', 'Johnny Depp', 'Frodo Baggins (The Lord of the Rings)'],
     },
   },
   INTP: {
