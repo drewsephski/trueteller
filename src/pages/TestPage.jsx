@@ -5,23 +5,86 @@ import './TestPage.css';
 
 const TestPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState(Array(questions.length).fill(null));
+  const [name, setName] = useState('');
+  const [nameSubmitted, setNameSubmitted] = useState(false);
   const navigate = useNavigate();
 
-  const handleAnswerClick = (value) => {
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    const newAnswers = [...answers, value];
+  const handleAnswerSelect = (value) => {
+    const newAnswers = [...answers];
+    newAnswers[currentQuestionIndex] = value;
     setAnswers(newAnswers);
 
+    const nextQuestionIndex = currentQuestionIndex + 1;
     if (nextQuestionIndex < questions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      navigate('/results', { state: { answers: newAnswers } });
+      navigate('/results', { state: { answers: newAnswers, name } });
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const cuteNames = ["pookie", "pingu", "mogumogu", "peekaboo", "bubbles", "mochi", "pompom", "booplet", "snugglebug",
+   "wigglywoo", "nibnib", "pipi", "zuzu", "chonky", "fluffin", "boopie", "nono", "tinky", "blibble",
+   "snickerdoodle", "cuppy", "gumdrop", "beebo", "muffin", "wubwub", "tutu", "momo", "sprinkles",
+   "giggles", "doodlebug", "pupperoo", "lala", "tinkletop", "oinky", "fizzfuzz", "peanut", "jiggles",
+   "cotton", "honeybun", "nibbles", "wiggles", "tofu", "tater", "jellybean", "fuzzle", "snugbug",
+   "tinykins", "booboop", "dumdum", "cheekyboo", "scootles", "mimi", "tingting", "flicka", "gigglypoof",
+   "baboo", "binky", "mushie", "twinkle", "wompwomp", "tickletoes", "noodle", "squishie", "doodoo",
+   "cutiepatootie", "schnookie", "puffin", "crumpet", "kiki", "bonbon", "teacup", "cuddlepuff",
+   "twinkie", "bopbop", "snugglemuff", "jiggy", "lulu", "blopblop", "mewmew", "choochu", "smolbean",
+   "wigglet", "skippy", "cheeky", "fruityloop", "gogo", "toto", "whoopsie", "squee", "shmoopie",
+   "puffypaws", "puddingpop", "fizzles", "rolypoly", "koko", "meepmeep", "tugboat", "cinnabun", "cloverbean",
+   "twinklepuff", "booboofluff", "chibi", "snuffly"];
+  
+  const generateRandomName = () => {
+    const randomName = cuteNames[Math.floor(Math.random() * cuteNames.length)];
+    setName(randomName.charAt(0).toUpperCase() + randomName.slice(1));
+  };
+
+  const handleNameSubmit = (e) => {
+    e.preventDefault();
+    if (name.trim()) {
+      setName(name.trim().charAt(0).toUpperCase() + name.trim().slice(1));
+      setNameSubmitted(true);
     }
   };
 
   const currentQuestion = questions[currentQuestionIndex];
-  const progress = ((currentQuestionIndex) / questions.length) * 100;
+  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+
+  if (!nameSubmitted) {
+    return (
+      <div className="test-container container section">
+        <div className="test-card">
+          <h2 className="welcome-heading">Welcome to the Test</h2>
+          <p className="welcome-subheading">Please enter your name to begin.</p>
+          <form onSubmit={handleNameSubmit} className="name-form">
+            <div className="name-input-container">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your name"
+                className="name-input"
+              />
+              <button type="button" onClick={generateRandomName} className="btn random-name-btn">
+                Generate Random Name
+              </button>
+            </div>
+            <button type="submit" className="btn start-btn" disabled={!name.trim()}>
+              Start Test
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="test-container container section">
@@ -37,13 +100,22 @@ const TestPage = () => {
           {answerOptions.map((option) => (
             <button
               key={option.value}
-              className="btn answer-btn"
-              onClick={() => handleAnswerClick(option.value)}
+              className={`btn answer-btn ${answers[currentQuestionIndex] === option.value ? 'selected' : ''}`}
+              onClick={() => handleAnswerSelect(option.value)}
             >
               {option.text}
             </button>
           ))}
         </div>
+        <div className="navigation-buttons">
+            <button
+              className="btn prev-btn"
+              onClick={handlePrev}
+              disabled={currentQuestionIndex === 0}
+            >
+              Previous
+            </button>
+          </div>
       </div>
     </div>
   );

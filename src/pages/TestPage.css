@@ -66,9 +66,8 @@
 
 .likert-scale {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .likert-scale .answer-btn {
@@ -89,4 +88,77 @@
     font-size: 1rem;
     padding: 1rem;
   }
+}
+
+.welcome-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.welcome-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #666;
+}
+
+.name-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-input-container {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.name-input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.name-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.random-name-btn {
+  border-radius: 0 5px 5px 0;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.start-btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.answer-btn.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.prev-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
 } 
