@@ -118,9 +118,9 @@ const DetailedResultsPage = () => {
       {/* Social Circles & Family Life */}
        <div className="result-card">
         <h2><FaUsers /> Social Circles & Family Life</h2>
-        <p>{result.socialCirclesFamilyLife.friendships.description}</p>
         <div className="card-subsection">
             <h3>Friendships</h3>
+            <p>{result.socialCirclesFamilyLife.friendships.description}</p>
             <div className="strengths-weaknesses-container">
                 <div>
                     <h4>Strengths:</h4>
