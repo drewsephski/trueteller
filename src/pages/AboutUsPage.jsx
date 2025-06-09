@@ -4,25 +4,18 @@ import TeamMemberCard from '../components/TeamMemberCard';
 
 const teamMembers = [
   {
-    name: 'Alex Doe',
+    name: 'Dhruv Chheda',
     role: 'Lead Developer',
     imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300',
-    githubUrl: '#',
-    linkedinUrl: '#',
+    githubUrl: 'https://github.com/chhedadhruv',
+    linkedinUrl: 'https://www.linkedin.com/in/dhruv-chheda/',
   },
   {
-    name: 'Jane Smith',
+    name: 'Sanaj Jadhav',
     role: 'UX/UI Designer',
     imageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=300',
-    githubUrl: '#',
-    linkedinUrl: '#',
-  },
-  {
-    name: 'Sam Wilson',
-    role: 'Project Manager',
-    imageUrl: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300',
-    githubUrl: '#',
-    linkedinUrl: '#',
+    githubUrl: 'https://github.com/sanajjadhav15',
+    linkedinUrl: 'https://www.linkedin.com/in/sanaj-jadhav/',
   },
 ];
 
