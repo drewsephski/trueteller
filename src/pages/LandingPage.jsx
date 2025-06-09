@@ -6,7 +6,7 @@ import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt } from 'react-i
 import { GiCrystalBall } from 'react-icons/gi';
 import logo from '../assets/trueyouteller_logo-removebg.png';
 import FriendsQuiz from '../components/MiniGames/friends/FriendsQuiz';
-import InsideOutQuiz from '../components/MiniGames/insideout/InsideOutQuiz';
+import InsideOutQuiz from '../components/MiniGames/insideOut/InsideOutQuiz';
 
 const LandingPage = () => {
   return (
