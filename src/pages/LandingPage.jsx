@@ -5,6 +5,7 @@ import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt } from 'react-i
 import { GiCrystalBall } from 'react-icons/gi';
 import logo from '../assets/trueyouteller_logo-removebg.png';
 import FriendsQuiz from '../components/MiniGames/friends/FriendsQuiz';
+import InsideOutQuiz from '../components/MiniGames/insideout/InsideOutQuiz';
 
 const LandingPage = () => {
   return (
@@ -65,6 +66,7 @@ const LandingPage = () => {
         <p>Try our fun mini-games to discover even more about yourself!</p>
         <div className="mini-games-container">
           <FriendsQuiz />
+          <InsideOutQuiz />
         </div>
       </section>
 

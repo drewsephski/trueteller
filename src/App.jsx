@@ -6,7 +6,6 @@ import ContactUsPage from './pages/ContactUsPage';
 import TestPage from './pages/TestPage';
 import ResultsPage from './pages/ResultsPage';
 import DetailedResultsPage from './pages/DetailedResultsPage';
-import InsideOutQuiz from './pages/InsideOutQuiz';
 import './App.css';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
           <Route path="/test" element={<TestPage />} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/detailed-results" element={<DetailedResultsPage />} />
-          <Route path="/inside-out-quiz" element={<InsideOutQuiz />} />
         </Routes>
       </main>
     </div>
