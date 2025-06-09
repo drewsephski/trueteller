@@ -36,7 +36,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you provide a stable and structured home. You are dedicated to instilling values of responsibility and hard work in your children.',
     },
     culturalConnections: {
-      famousMatches: ['George Washington', 'Angela Merkel', 'Sting', 'Hermione Granger (Harry Potter)'],
+      famousMatches: ['George Washington', 'Angela Merkel', 'Sheldon Cooper', 'Hermione Granger (Harry Potter)'],
     },
   },
   ISFJ: {
@@ -76,7 +76,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are patient, nurturing, and protective. You create a warm and stable environment where your children feel safe and loved.',
     },
     culturalConnections: {
-      famousMatches: ['Beyoncé', 'Queen Elizabeth II', 'Dr. Watson (Sherlock Holmes)', 'Captain America (Marvel)'],
+      famousMatches: ['Beyoncé', 'Queen Elizabeth II', 'Dr. Watson (Sherlock Holmes)', 'Selena Gomez'],
     },
   },
   INFJ: {
@@ -116,7 +116,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are deeply committed to your children\'s growth, aiming to raise them to be independent and compassionate individuals with strong values.',
     },
     culturalConnections: {
-      famousMatches: ['Martin Luther King Jr.', 'Nelson Mandela', 'Lady Gaga', 'J-Hope'],
+      famousMatches: ['Martin Luther King Jr.', 'Lisa Simpson', 'Lady Gaga', 'J-Hope'],
     },
   },
   INTJ: {
@@ -156,7 +156,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are focused on raising independent, intelligent, and capable children. You encourage their curiosity and support their education above all else.',
     },
     culturalConnections: {
-      famousMatches: ['Elon Musk', 'Michelle Obama', 'Friedrich Nietzsche', 'Gandalf (The Lord of the Rings)'],
+      famousMatches: ['Elon Musk', 'Michelle Obama', 'Walter White', 'Gandalf (The Lord of the Rings)'],
     },
   },
   ISTP: {
@@ -196,7 +196,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are relaxed and encourage your children to be independent and explore the world. You are more of a "guide on the side" than an enforcer of rules.',
     },
     culturalConnections: {
-      famousMatches: ['Clint Eastwood', 'Tom Cruise', 'Indiana Jones', 'Arya Stark (Game of Thrones)'],
+      famousMatches: ['Bruce Lee', 'Tom Cruise', 'Indiana Jones', 'Arya Stark (Game of Thrones)'],
     },
   },
   ISFP: {
@@ -276,7 +276,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are loving, supportive, and focused on raising children who are true to themselves. You foster an environment of creativity and emotional honesty.',
     },
     culturalConnections: {
-      famousMatches: ['William Shakespeare', 'Kim Taehyung(V)', 'Johnny Depp', 'Frodo Baggins (The Lord of the Rings)'],
+      famousMatches: ['William Shakespeare', 'Kim Taehyung(V)', 'Johnny Depp', 'Sadness (Inside Out)'],
     },
   },
   INTP: {
@@ -356,7 +356,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are fun and energetic, encouraging your children to be bold and try new things. You are more of a "fun parent" than a disciplinarian.',
     },
     culturalConnections: {
-      famousMatches: ['Madonna', 'Jack Nicholson', 'Eddie Murphy', 'Han Solo (Star Wars)'],
+      famousMatches: ['Madonna', 'Jack Nicholson (The Shining)', 'Eddie Murphy', 'Han Solo (Star Wars)'],
     },
   },
   ESFP: {
@@ -396,7 +396,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are fun-loving and affectionate, creating a home full of joy and laughter. You encourage your children to explore their passions.',
     },
     culturalConnections: {
-      famousMatches: ['Marilyn Monroe', 'Adele', 'Will Smith', 'Pippin Took (The Lord of the Rings)'],
+      famousMatches: ['Leonardo DiCaprio', 'Adele', 'Will Smith', 'Pippin Took (The Lord of the Rings)'],
     },
   },
   ENFP: {
@@ -436,7 +436,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are creative, loving, and encourage your children to be independent thinkers. You create a home environment that is full of possibilities and emotional support.',
     },
     culturalConnections: {
-      famousMatches: ['Robert Downey Jr.', 'Robin Williams', 'Ellen DeGeneres', 'Spider-Man'],
+      famousMatches: ['Robert Downey Jr.', 'Robin Williams (The Jumanji)', 'Ellen DeGeneres', 'Jennifer Aniston (Friends)'],
     },
   },
   ENTP: {
@@ -476,7 +476,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you encourage independence and critical thinking in your children. You expose them to a wide range of ideas and possibilities, fostering their intellectual curiosity.',
     },
     culturalConnections: {
-      famousMatches: ['Sacha Baron Cohen', 'Tom Hanks', 'Thomas Edison', 'Captain Jack Sparrow (Pirates of the Caribbean)'],
+      famousMatches: ['Sacha Baron Cohen (The Dictator)', 'Tom Hanks', 'Thomas Edison', 'Captain Jack Sparrow (Pirates of the Caribbean)'],
     },
   },
   ESTJ: {
@@ -636,7 +636,7 @@ export const PERSONALITY_TYPES = {
       parenthood: 'As a parent, you are focused on raising children who are intelligent, independent, and successful. You set high standards and provide the structure to help them achieve great things.',
     },
     culturalConnections: {
-      famousMatches: ['Steve Jobs', 'Margaret Thatcher', 'Gordon Ramsay', 'Tony Stark (Iron Man)'],
+      famousMatches: ['Steve Jobs', 'Jacqueline A. Sharp (House of Cards)', 'Mary Talbot (Downton Abbey)', 'Tony Stark (Iron Man)'],
     },
   },
 }; 
