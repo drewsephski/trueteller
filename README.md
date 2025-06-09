@@ -1,4 +1,4 @@
-# TrueYouTeller
+# TrueYouTelle
 
 Welcome to **TrueYouTeller**, your magical guide to self-discovery! This fun and insightful personality test is designed to reveal the unique traits that make you, you.
 
