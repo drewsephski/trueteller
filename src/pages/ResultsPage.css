@@ -24,10 +24,19 @@
 
 .spirit-animal-section {
   background: var(--lavender);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 1.5rem;
   margin: 2rem 0;
   border-left: 5px solid var(--bright-orange);
+  text-align: center;
+}
+
+.spirit-animal-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
 }
 
 .spirit-animal-emoji {

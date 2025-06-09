@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { PERSONALITY_TYPES } from '../data/personalityTypes';
 import { questions } from '../data/questions';
-import IconMapper from '../components/IconMapper';
 import './ResultsPage.css';
 
 const ResultsPage = () => {
@@ -47,13 +46,21 @@ const ResultsPage = () => {
     );
   }
 
+  const getSpiritAnimalImage = (spiritAnimal) => {
+    let animalName = spiritAnimal.split(' ')[1].toLowerCase();
+    if (animalName === 'dolphin') {
+      animalName = 'dophin';
+    }
+    return new URL(`../assets/animals/${animalName}.jpg`, import.meta.url).href;
+  };
+
   return (
     <div className="results-container container section">
       <div className="results-card">
         <h2 className="result-name">You are {result.name} ({result.code})</h2>
         <p className="result-description">{result.description}</p>
         <div className="spirit-animal-section">
-          <div className="spirit-animal-emoji"><IconMapper emoji={result.emoji} /></div>
+          <img src={getSpiritAnimalImage(result.spiritAnimal)} alt={result.spiritAnimal} className="spirit-animal-image" />
           <h3>Your Spirit Animal is the {result.spiritAnimal}</h3>
           <p>{result.reason}</p>
         </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import './DetailedResultsPage.css';
-import IconMapper from '../components/IconMapper';
 import { FaStar, FaBriefcase, FaHeart, FaUsers, FaFilm } from 'react-icons/fa';
 
 const DetailedResultsPage = () => {
@@ -18,6 +17,14 @@ const DetailedResultsPage = () => {
     );
   }
 
+  const getSpiritAnimalImage = (spiritAnimal) => {
+    let animalName = spiritAnimal.split(' ')[1].toLowerCase();
+    if (animalName === 'dolphin') {
+      animalName = 'dophin';
+    }
+    return new URL(`../assets/animals/${animalName}.jpg`, import.meta.url).href;
+  };
+
   const renderList = (items) => (
     <ul>
       {items.map((item, index) => <li key={index}>{item}</li>)}
@@ -27,7 +34,7 @@ const DetailedResultsPage = () => {
   return (
     <div className="detailed-results-page container section">
       <header className="detailed-header">
-        <div className="detailed-header-emoji"><IconMapper emoji={result.emoji} /></div>
+        <img src={getSpiritAnimalImage(result.spiritAnimal)} alt={result.spiritAnimal} className="spirit-animal-image-detailed" />
         <h1>{result.name} ({result.code})</h1>
         <p className="detailed-header-description">{result.description}</p>
       </header>
