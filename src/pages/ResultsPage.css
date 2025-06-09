@@ -59,6 +59,25 @@
   margin-top: 1rem;
 }
 
+.save-status {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.save-status.saving {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.save-status.error {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
+}
+
 .results-buttons-container {
   display: flex;
   justify-content: center;

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { PERSONALITY_TYPES } from '../data/personalityTypes';
 import { questions } from '../data/questions';
+import { saveTestResult } from '../firebase/config';
 import './ResultsPage.css';
 
 const ResultsPage = () => {
   const location = useLocation();
-  const { answers } = location.state || { answers: [] };
+  const { answers, name } = location.state || { answers: [], name: '' };
+  const hasSaved = useRef(false);
 
   const calculateResult = () => {
     if (answers.length !== questions.length) {
@@ -33,6 +35,24 @@ const ResultsPage = () => {
   };
 
   const result = calculateResult();
+
+  // Save result to Firebase when component mounts
+  useEffect(() => {
+    const saveResultToFirebase = async () => {
+      if (result && name && answers.length > 0 && !hasSaved.current) {
+        hasSaved.current = true;
+        try {
+          await saveTestResult(name, result, answers);
+          console.log('Test result saved successfully!');
+        } catch (error) {
+          console.error('Failed to save test result:', error);
+          hasSaved.current = false; // Reset on error so it can retry
+        }
+      }
+    };
+
+    saveResultToFirebase();
+  }, [result, name, answers]);
 
   if (!result) {
     return (
