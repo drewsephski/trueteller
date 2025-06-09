@@ -1,20 +1,22 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Dhruv from '../assets/creators/dhruv.png';
+import Sanaj from '../assets/creators/sanaj.png';
 import './AboutUsPage.css';
 import TeamMemberCard from '../components/TeamMemberCard';
 
 const teamMembers = [
   {
     name: 'Dhruv Chheda',
-    role: 'Lead Developer',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300',
+    role: 'Web Developer',
+    imageUrl: Dhruv,
     githubUrl: 'https://github.com/chhedadhruv',
     linkedinUrl: 'https://www.linkedin.com/in/dhruv-chheda/',
   },
   {
     name: 'Sanaj Jadhav',
-    role: 'UX/UI Designer',
-    imageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=300',
+    role: 'Web Developer',
+    imageUrl: Sanaj,
     githubUrl: 'https://github.com/sanajjadhav15',
     linkedinUrl: 'https://www.linkedin.com/in/sanaj-jadhav/',
   },
