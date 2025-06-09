@@ -1,0 +1,104 @@
+.detailed-results-page {
+  padding-bottom: 3rem;
+}
+
+.detailed-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--deep-purple), #7c4ee9);
+  color: var(--white);
+}
+
+.detailed-header-emoji {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.detailed-header h1 {
+  color: var(--white);
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+.detailed-header-description {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.result-card {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+}
+
+.result-card h2 {
+  font-size: 2rem;
+  color: var(--deep-purple);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--lavender);
+  padding-bottom: 0.5rem;
+}
+
+.result-card h3 {
+  font-family: var(--title-font);
+  color: var(--bright-orange);
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.result-card h4 {
+  font-size: 1.2rem;
+  color: var(--dark-navy);
+  margin-bottom: 0.5rem;
+}
+
+.card-subsection {
+  margin-top: 2rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.columns ul {
+  padding-left: 20px;
+}
+
+.columns li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag {
+  background-color: var(--lavender);
+  color: var(--deep-purple);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.celebrity-tag {
+    background-color: var(--bright-orange);
+    color: var(--white);
+} 

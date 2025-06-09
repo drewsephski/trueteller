@@ -1,0 +1,135 @@
+/* Root Variables - Color Scheme */
+:root {
+  --deep-purple: #5B2C6F;
+  --bright-orange: #F39C12;
+  --lavender: #E8DAEF;
+  --white: #FFFFFF;
+  --dark-navy: #2C3E50;
+  
+  /* Font families from index.html */
+  --title-font: 'Chewy', cursive;
+  --body-font: 'Nunito', sans-serif;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--lavender);
+  color: var(--dark-navy);
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--lavender) 0%, #f5f1f7 100%);
+}
+
+/* Common button styles */
+.btn {
+  padding: 12px 30px;
+  border: 2px solid var(--bright-orange);
+  border-radius: 25px;
+  background: var(--white);
+  color: var(--deep-purple);
+  font-family: var(--body-font);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--bright-orange);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(91, 44, 111, 0.2);
+}
+
+.btn-primary {
+  background: var(--deep-purple);
+  color: var(--white);
+  border-color: var(--deep-purple);
+}
+
+.btn-primary:hover {
+  background: var(--bright-orange);
+  border-color: var(--bright-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* Container for content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section spacing */
+.section {
+  padding: 60px 0;
+}
+
+/* Heading styles */
+h1, h2, h3 {
+  font-family: var(--title-font);
+  color: var(--deep-purple);
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* Cute animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.bouncing {
+  animation: bounce 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+}

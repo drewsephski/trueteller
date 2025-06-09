@@ -1,0 +1,113 @@
+.results-container .results-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15);
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.result-name {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--deep-purple);
+}
+
+.result-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--dark-navy);
+  margin-bottom: 2rem;
+}
+
+.spirit-animal-section {
+  background: var(--lavender);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-left: 5px solid var(--bright-orange);
+}
+
+.spirit-animal-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.spirit-animal-section h3 {
+  font-family: var(--title-font);
+  color: var(--deep-purple);
+  margin-bottom: 0.5rem;
+}
+
+.spirit-animal-section p {
+  font-size: 1rem;
+  color: var(--dark-navy);
+}
+
+.results-card .btn {
+  margin-top: 1rem;
+}
+
+.results-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* All Personality Types Section */
+.all-types-section {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15);
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  margin: 2rem auto 0;
+  margin-bottom: 1.5rem;
+}
+
+.all-types-section h3 {
+  font-family: var(--title-font);
+  font-size: 2rem;
+  color: var(--deep-purple);
+  margin-bottom: 1.5rem;
+}
+
+.personality-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1.5rem 1rem;
+  background-color: var(--lavender);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.type-code {
+  font-family: var(--title-font);
+  font-size: 1.5rem;
+  color: var(--deep-purple);
+}
+
+.type-name {
+  font-weight: 600;
+  color: var(--dark-navy);
+  margin-bottom: 0.5rem;
+}
+
+.type-animal {
+  font-size: 0.9rem;
+  color: var(--dark-navy);
+} 
