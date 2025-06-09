@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt } from 'react-icons/fa';
 import { GiCrystalBall } from 'react-icons/gi';
 import logo from '../assets/trueyouteller_logo-removebg.png';
+import FriendsQuiz from '../components/MiniGames/friends/FriendsQuiz';
 
 const LandingPage = () => {
   return (
@@ -56,6 +57,14 @@ const LandingPage = () => {
               <p>No waiting! Get your personality analysis right after the last question.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section container mini-games">
+        <h2>Mini-Games</h2>
+        <p>Try our fun mini-games to discover even more about yourself!</p>
+        <div className="mini-games-container">
+          <FriendsQuiz />
         </div>
       </section>
 

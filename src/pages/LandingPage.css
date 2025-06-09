@@ -154,11 +154,24 @@
 /* Final CTA Section */
 .final-cta {
   padding: 4rem 0;
-  background-color: var(--lavender);
+  background-color: #f9f9f9;
 }
 
 .landing-page .section {
   text-align: center;
+}
+
+.mini-games {
+  text-align: center;
+}
+
+.mini-games-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 @media screen and (max-width: 768px) {
