@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../assets/trueyouteller.png';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container container">
         <NavLink to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          TrueYouTeller
+          <img src={logo} alt="True YouTeller" className="navbar-brand-logo" />
         </NavLink>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

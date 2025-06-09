@@ -111,13 +111,41 @@ const DetailedResultsPage = () => {
       {/* Social Circles & Family Life */}
        <div className="result-card">
         <h2><FaUsers /> Social Circles & Family Life</h2>
+        <p>{result.socialCirclesFamilyLife.friendships.description}</p>
         <div className="card-subsection">
             <h3>Friendships</h3>
-            <p>{result.socialCirclesFamilyLife.friendships}</p>
+            <div className="strengths-weaknesses-container">
+                <div>
+                    <h4>Strengths:</h4>
+                    <ul>
+                        {result.socialCirclesFamilyLife.friendships.strengths.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                </div>
+                <div>
+                    <h4>Weaknesses:</h4>
+                    <ul>
+                        {result.socialCirclesFamilyLife.friendships.weaknesses.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                </div>
+            </div>
         </div>
         <div className="card-subsection">
             <h3>Parenthood</h3>
-            <p>{result.socialCirclesFamilyLife.parenthood}</p>
+            <p>{result.socialCirclesFamilyLife.parenthood.description}</p>
+            <div className="strengths-weaknesses-container">
+                <div>
+                    <h4>Strengths:</h4>
+                    <ul>
+                        {result.socialCirclesFamilyLife.parenthood.strengths.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                </div>
+                <div>
+                    <h4>Weaknesses:</h4>
+                    <ul>
+                        {result.socialCirclesFamilyLife.parenthood.weaknesses.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                </div>
+            </div>
         </div>
       </div>
 
@@ -125,8 +153,23 @@ const DetailedResultsPage = () => {
        <div className="result-card">
         <h2><FaFilm /> Cultural Connections</h2>
         <p>For fun, here are some famous celebrities or fictional characters that may share your personality type. This is just for illustrative purposes!</p>
-        <div className="tags-container">
-            {result.culturalConnections.famousMatches.map(match => <span className="tag celebrity-tag" key={match}>{match}</span>)}
+        <div className="famous-matches-container">
+            {result.culturalConnections.famousMatches.map(match => {
+                const imageName = match
+                    .replace(/\s*\(.*\)\s*/g, '')
+                    .replace(/\./g, '')
+                    .replace(/\s+/g, '-')
+                    .trim();
+
+                const imageUrl = new URL(`../assets/famousMatches/${result.code}/${imageName}.png`, import.meta.url).href;
+
+                return (
+                    <div className="celebrity-card" key={match}>
+                        <img src={imageUrl} alt={match} className="celebrity-image" />
+                        <p className="celebrity-name">{match}</p>
+                    </div>
+                );
+            })}
         </div>
       </div>
     </div>

@@ -62,6 +62,23 @@
   margin-top: 2rem;
 }
 
+.card-subsection ul {
+  padding-left: 20px;
+  list-style-type: disc;
+  margin-bottom: 1rem;
+}
+
+.card-subsection li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.strengths-weaknesses-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
 .columns {
   display: grid;
   grid-template-columns: 1fr;
@@ -101,4 +118,40 @@
 .celebrity-tag {
     background-color: var(--bright-orange);
     color: var(--white);
+}
+
+.famous-matches-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.celebrity-card {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  background-color: #ffffff;
+  transition: transform 0.2s;
+}
+
+.celebrity-card:hover {
+    transform: translateY(-5px);
+}
+
+.celebrity-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.celebrity-name {
+  padding: 10px;
+  font-weight: bold;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--deep-purple);
 } 

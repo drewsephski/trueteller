@@ -26,7 +26,12 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
-  font-family: var(--title-font);
+}
+
+.navbar-brand-logo {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
 }
 
 .nav-menu {

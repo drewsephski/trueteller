@@ -32,8 +32,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Acts of Service is often your primary love language, as you express care by doing things for your partner.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You prefer a small circle of close, loyal friends who share your values. You are a reliable and supportive friend, though not always the most expressive.',
-      parenthood: 'As a parent, you provide a stable and structured home. You are dedicated to instilling values of responsibility and hard work in your children.',
+      friendships: {
+        description: 'You prefer a small circle of close, loyal friends who share your values. You are a reliable and supportive friend, though not always the most expressive.',
+        strengths: ['Extremely loyal and dependable', 'Reliable in times of need', 'Appreciates and respects traditions'],
+        weaknesses: ['Not very expressive with emotions', 'Can be rigid about social plans', 'May seem judgmental of different lifestyles'],
+      },
+      parenthood: {
+        description: 'As a parent, you provide a stable and structured home. You are dedicated to instilling values of responsibility and hard work in your children.',
+        strengths: ['Provides a stable and secure environment', 'Instills a strong work ethic and sense of responsibility', 'Consistent with rules and discipline'],
+        weaknesses: ['Can be inflexible with rules', 'May have difficulty showing affection openly', 'Struggles with children who are highly emotional or rebellious'],
+      },
     },
     culturalConnections: {
       famousMatches: ['George Washington', 'Angela Merkel', 'Sheldon Cooper', 'Hermione Granger (Harry Potter)'],
@@ -72,8 +80,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'You likely express love through both Acts of Service and Quality Time, valuing deep connection and mutual support.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a deeply loyal and caring friend who values long-term connections. Your friends know they can always count on you for a listening ear and practical support.',
-      parenthood: 'As a parent, you are patient, nurturing, and protective. You create a warm and stable environment where your children feel safe and loved.',
+      friendships: {
+        description: 'You are a deeply loyal and caring friend who values long-term connections. Your friends know they can always count on you for a listening ear and practical support.',
+        strengths: ['Deeply loyal and caring', 'Excellent listener', 'Provides practical help and support'],
+        weaknesses: ['Avoids conflict, letting issues build', 'Can be taken for granted', 'May neglect their own needs to help others'],
+      },
+      parenthood: {
+        description: 'As a parent, you are patient, nurturing, and protective. You create a warm and stable environment where your children feel safe and loved.',
+        strengths: ['Patient, nurturing, and protective', 'Creates a warm and stable home', 'Very hands-on and attentive'],
+        weaknesses: ['Can be overly protective', 'May struggle to enforce discipline due to conflict aversion', 'Prone to sacrificing their own well-being'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Beyoncé', 'Queen Elizabeth II', 'Dr. Watson (Sherlock Holmes)', 'Selena Gomez'],
@@ -112,8 +128,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Your love languages are often Quality Time and Words of Affirmation, as you thrive on deep connection and heartfelt communication.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You seek out friendships that are built on mutual trust, support, and authenticity. You are a loyal and insightful friend who offers deep emotional support.',
-      parenthood: 'As a parent, you are deeply committed to your children\'s growth, aiming to raise them to be independent and compassionate individuals with strong values.',
+      friendships: {
+        description: 'You seek out friendships that are built on mutual trust, support, and authenticity. You are a loyal and insightful friend who offers deep emotional support.',
+        strengths: ['Extremely loyal and supportive', 'Offers deep, insightful emotional support', 'Values authenticity and trust'],
+        weaknesses: ['Can have a very small, exclusive circle of friends', 'May seem overly intense', 'Easily hurt by perceived betrayal'],
+      },
+      parenthood: {
+        description: 'As a parent, you are deeply committed to your children\'s growth, aiming to raise them to be independent and compassionate individuals with strong values.',
+        strengths: ['Fosters independence and compassion', 'Instills strong, positive values', 'Highly attuned to a child\'s emotional needs'],
+        weaknesses: ['Can have overly high or idealistic expectations', 'May struggle with the mundane, practical aspects of parenting', 'Can be hurt deeply by children\'s rebellious phases'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Martin Luther King Jr.', 'Lisa Simpson', 'Lady Gaga', 'J-Hope'],
@@ -152,8 +176,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Your love language may be Acts of Service, as you focus on practical ways to improve your partner\'s life, or Quality Time spent on intellectual pursuits.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You seek friendships with people who can match you intellectually. You prefer a small circle of trusted friends with whom you can have deep, meaningful discussions.',
-      parenthood: 'As a parent, you are focused on raising independent, intelligent, and capable children. You encourage their curiosity and support their education above all else.',
+      friendships: {
+        description: 'You seek friendships with people who can match you intellectually. You prefer a small circle of trusted friends with whom you can have deep, meaningful discussions.',
+        strengths: ['Intellectually stimulating and challenging', 'Extremely loyal to their chosen few', 'Encourages and respects independence'],
+        weaknesses: ['Can seem arrogant or dismissive of others', 'Not naturally in tune with friends\' emotional needs', 'Maintains a very small, exclusive social circle'],
+      },
+      parenthood: {
+        description: 'As a parent, you are focused on raising independent, intelligent, and capable children. You encourage their curiosity and support their education above all else.',
+        strengths: ['Encourages intelligence and independence', 'Fosters a love of learning and curiosity', 'Teaches logical problem-solving skills'],
+        weaknesses: ['Can be emotionally distant or awkward', 'May have unrealistically high intellectual standards for children', 'Struggles with the emotional chaos and irrationality of childhood'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Elon Musk', 'Michelle Obama', 'Walter White', 'Gandalf (The Lord of the Rings)'],
@@ -192,8 +224,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Quality Time, especially when spent on exciting activities or new experiences, is often your preferred love language.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a fun, low-maintenance friend who is always up for an adventure. You connect with others through shared interests and activities rather than deep emotional discussions.',
-      parenthood: 'As a parent, you are relaxed and encourage your children to be independent and explore the world. You are more of a "guide on the side" than an enforcer of rules.',
+      friendships: {
+        description: 'You are a fun, low-maintenance friend who is always up for an adventure. You connect with others through shared interests and activities rather than deep emotional discussions.',
+        strengths: ['Adventurous and fun-loving', 'Low-maintenance and not demanding', 'Excellent in a crisis situation'],
+        weaknesses: ['Avoids deep emotional connection', 'Can be unreliable with long-term commitments', 'May disappear for periods to pursue new interests'],
+      },
+      parenthood: {
+        description: 'As a parent, you are relaxed and encourage your children to be independent and explore the world. You are more of a "guide on the side" than an enforcer of rules.',
+        strengths: ['Encourages independence and exploration', 'Not overbearing or controlling', 'Teaches valuable practical skills'],
+        weaknesses: ['Can be too hands-off or seem detached', 'Dislikes the routine and structure that children often need', 'May not provide enough emotional guidance'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Bruce Lee', 'Tom Cruise', 'Indiana Jones', 'Arya Stark (Game of Thrones)'],
@@ -232,8 +272,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'You likely express love through Physical Touch and Quality Time, valuing closeness and shared experiences.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a supportive and adventurous friend who is always ready to explore something new. You value friends who are open-minded and appreciate your artistic spirit.',
-      parenthood: 'As a parent, you are warm, flexible, and encourage your children to be individuals. You create a loving and creative home environment.',
+      friendships: {
+        description: 'You are a supportive and adventurous friend who is always ready to explore something new. You value friends who are open-minded and appreciate your artistic spirit.',
+        strengths: ['Supportive and encouraging', 'Adventurous and spontaneous', 'Appreciates beauty and new experiences'],
+        weaknesses: ['Extremely conflict-averse', 'Can be unpredictable and hard to pin down', 'May get their feelings hurt easily by criticism'],
+      },
+      parenthood: {
+        description: 'As a parent, you are warm, flexible, and encourage your children to be individuals. You create a loving and creative home environment.',
+        strengths: ['Creates a loving, warm, and creative home', 'Encourages children\'s individuality and artistic expression', 'Flexible and easy-going approach'],
+        weaknesses: ['Can be inconsistent with discipline', 'May struggle with setting practical, long-term goals for children', 'Avoids necessary conflicts, letting issues slide'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Michael Jackson', 'Britney Spears', 'Jeon Jungkook', 'Harry Potter'],
@@ -272,8 +320,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Words of Affirmation and Quality Time are often your most cherished love languages, as you need to feel understood and emotionally connected.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a loyal and deeply caring friend who values a small circle of authentic connections. You are the friend others turn to for non-judgmental support and deep conversation.',
-      parenthood: 'As a parent, you are loving, supportive, and focused on raising children who are true to themselves. You foster an environment of creativity and emotional honesty.',
+      friendships: {
+        description: 'You are a loyal and deeply caring friend who values a small circle of authentic connections. You are the friend others turn to for non-judgmental support and deep conversation.',
+        strengths: ['Deeply loyal and caring', 'Provides non-judgmental emotional support', 'Values authenticity and deep connection'],
+        weaknesses: ['Can be difficult to get to know', 'Takes criticism or conflict very personally', 'Can have overly idealistic expectations of friendship'],
+      },
+      parenthood: {
+        description: 'As a parent, you are loving, supportive, and focused on raising children who are true to themselves. You foster an environment of creativity and emotional honesty.',
+        strengths: ['Fosters creativity and emotional honesty', 'Deeply loving and supportive of their child\'s true self', 'Creates a warm, accepting environment'],
+        weaknesses: ['Can be impractical and disorganized', 'Avoids conflict and struggles with discipline', 'May have overly idealistic expectations for their children'],
+      },
     },
     culturalConnections: {
       famousMatches: ['William Shakespeare', 'Kim Taehyung(V)', 'Johnny Depp', 'Sadness (Inside Out)'],
@@ -312,8 +368,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Your love language is likely Quality Time, especially when it involves learning something new together or engaging in a deep, intellectual discussion.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You prefer a small circle of friends who share your intellectual curiosity. You enjoy debating ideas and exploring complex topics with like-minded people.',
-      parenthood: 'As a parent, you are relaxed and encourage your children\'s intellectual development above all. You give them a lot of freedom to explore their own interests and ideas.',
+      friendships: {
+        description: 'You prefer a small circle of friends who share your intellectual curiosity. You enjoy debating ideas and exploring complex topics with like-minded people.',
+        strengths: ['Intellectually engaging and witty', 'Open-minded and willing to explore any idea', 'Low-maintenance and independent'],
+        weaknesses: ['Can seem insensitive or emotionally aloof', 'Not the best source of emotional support', 'Prone to withdrawing into their own world'],
+      },
+      parenthood: {
+        description: 'As a parent, you are relaxed and encourage your children\'s intellectual development above all. You give them a lot of freedom to explore their own interests and ideas.',
+        strengths: ['Fosters intellectual curiosity and independence', 'Relaxed about rules and schedules', 'Teaches children to think logically and question everything'],
+        weaknesses: ['Can be absent-minded about practical needs', 'Emotionally detached and uncomfortable with childhood messiness', 'May not provide enough structure or emotional warmth'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Albert Einstein', 'Bill Gates', 'Isaac Newton', 'Neo (The Matrix)'],
@@ -352,8 +416,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Your love languages are often Physical Touch and Quality Time, centered around shared activities and excitement.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are the life of the party and have a wide circle of friends. You connect with others through shared activities, humor, and a love for adventure.',
-      parenthood: 'As a parent, you are fun and energetic, encouraging your children to be bold and try new things. You are more of a "fun parent" than a disciplinarian.',
+      friendships: {
+        description: 'You are the life of the party and have a wide circle of friends. You connect with others through shared activities, humor, and a love for adventure.',
+        strengths: ['Energetic, fun, and adventurous', 'Maintains a large, active social circle', 'Direct and straightforward'],
+        weaknesses: ['Can be insensitive to others\' feelings', 'Focuses on surface-level fun over deep connection', 'May be unreliable and risk-prone'],
+      },
+      parenthood: {
+        description: 'As a parent, you are fun and energetic, encouraging your children to be bold and try new things. You are more of a "fun parent" than a disciplinarian.',
+        strengths: ['Fun, playful, and energetic', 'Encourages children to be bold and take risks', 'Doesn\'t sweat the small stuff'],
+        weaknesses: ['Lacks structure and consistency in discipline', 'Impatient with the day-to-day routines of parenting', 'Can be a poor role model for long-term planning'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Madonna', 'Jack Nicholson (The Shining)', 'Eddie Murphy', 'Han Solo (Star Wars)'],
@@ -392,8 +464,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'You are fluent in many love languages, but especially Quality Time, Physical Touch, and Receiving Gifts, as you love to share and celebrate life together.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are the heart of your social circle, with many friends drawn to your warmth and energy. You are a generous friend who loves to celebrate life\'s moments, big and small.',
-      parenthood: 'As a parent, you are fun-loving and affectionate, creating a home full of joy and laughter. You encourage your children to explore their passions.',
+      friendships: {
+        description: 'You are the heart of your social circle, with many friends drawn to your warmth and energy. You are a generous friend who loves to celebrate life\'s moments, big and small.',
+        strengths: ['Warm, energetic, and generous', 'Excellent at making people feel included', 'Loves to celebrate and create fun experiences'],
+        weaknesses: ['Averse to any kind of conflict', 'Can be overly sensitive to perceived slights', 'May focus more on fun than on providing deep, meaningful support'],
+      },
+      parenthood: {
+        description: 'As a parent, you are fun-loving and affectionate, creating a home full of joy and laughter. You encourage your children to explore their passions.',
+        strengths: ['Fun-loving, affectionate, and playful', 'Creates a joyful and aesthetically pleasing home', 'Encourages children to follow their passions'],
+        weaknesses: ['Struggles with long-term planning and finances', 'Can be inconsistent with rules and discipline', 'Avoids necessary conflicts with children'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Leonardo DiCaprio', 'Adele', 'Will Smith', 'Pippin Took (The Lord of the Rings)'],
@@ -432,8 +512,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Words of Affirmation and Quality Time are central to you, as you thrive on verbal encouragement and deep, shared connection.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You have a wide and diverse circle of friends, drawn to your warmth, enthusiasm, and open-mindedness. You are a supportive and inspiring friend.',
-      parenthood: 'As a parent, you are creative, loving, and encourage your children to be independent thinkers. You create a home environment that is full of possibilities and emotional support.',
+      friendships: {
+        description: 'You have a wide and diverse circle of friends, drawn to your warmth, enthusiasm, and open-mindedness. You are a supportive and inspiring friend.',
+        strengths: ['Supportive, inspiring, and enthusiastic', 'Warm, friendly, and approachable', 'Excellent at communication and making connections'],
+        weaknesses: ['Can be unreliable and forgetful about plans', 'Can be highly emotional and overthink things', 'Difficulty with follow-through can frustrate friends'],
+      },
+      parenthood: {
+        description: 'As a parent, you are creative, loving, and encourage your children to be independent thinkers. You create a home environment that is full of possibilities and emotional support.',
+        strengths: ['Fosters creativity and independent thought', 'Provides a loving and emotionally supportive home', 'Makes childhood feel exciting and full of possibilities'],
+        weaknesses: ['Lacks consistency with rules and practical matters', 'Can be overly emotional, overwhelming a child', 'Finds it difficult to enforce boundaries'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Robert Downey Jr.', 'Robin Williams (The Jumanji)', 'Ellen DeGeneres', 'Jennifer Aniston (Friends)'],
@@ -472,8 +560,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Your love language is often Quality Time, particularly when spent debating and exploring new ideas together.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You enjoy a wide circle of friends and acquaintances who can keep up with your quick mind. You are the friend who will play devil\'s advocate for fun and challenge everyone\'s thinking.',
-      parenthood: 'As a parent, you encourage independence and critical thinking in your children. You expose them to a wide range of ideas and possibilities, fostering their intellectual curiosity.',
+      friendships: {
+        description: 'You enjoy a wide circle of friends and acquaintances who can keep up with your quick mind. You are the friend who will play devil\'s advocate for fun and challenge everyone\'s thinking.',
+        strengths: ['Intellectually stimulating and quick-witted', 'Charismatic and fun to be around', 'Challenges friends to see new perspectives'],
+        weaknesses: ['Can be argumentative and insensitive', 'May abandon friendships if they become boring', 'Dislikes discussing personal, emotional problems'],
+      },
+      parenthood: {
+        description: 'As a parent, you encourage independence and critical thinking in your children. You expose them to a wide range of ideas and possibilities, fostering their intellectual curiosity.',
+        strengths: ['Fosters intelligence and independence', 'Encourages critical thinking and debate', 'Exposes children to a wide range of ideas'],
+        weaknesses: ['Can be argumentative with their own children', 'Dislikes the practical, day-to-day routines of parenting', 'May not provide enough emotional stability or warmth'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Sacha Baron Cohen (The Dictator)', 'Tom Hanks', 'Thomas Edison', 'Captain Jack Sparrow (Pirates of the Caribbean)'],
@@ -512,8 +608,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Acts of Service is a very common love language for you, as you believe that actions speak louder than words.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a loyal friend who enjoys organizing social events. You are drawn to people who are also responsible and community-minded.',
-      parenthood: 'As a parent, you are dedicated to providing a secure and well-ordered home. You set clear expectations and instill a strong sense of duty and respect in your children.',
+      friendships: {
+        description: 'You are a loyal friend who enjoys organizing social events. You are drawn to people who are also responsible and community-minded.',
+        strengths: ['Extremely loyal and dependable', 'Excellent at organizing social gatherings', 'Creates a strong sense of community'],
+        weaknesses: ['Can be bossy or controlling in social settings', 'Judgmental of friends with different lifestyles or values', 'Inflexible with plans and resistant to spontaneity'],
+      },
+      parenthood: {
+        description: 'As a parent, you are dedicated to providing a secure and well-ordered home. You set clear expectations and instill a strong sense of duty and respect in your children.',
+        strengths: ['Provides excellent structure and security', 'Instills a strong sense of respect and duty', 'Very reliable and consistent with discipline'],
+        weaknesses: ['Can be too rigid and controlling', 'Has difficulty expressing emotion and affection', 'Struggles with children who are unconventional or rebellious'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Judge Judy', 'John D. Rockefeller', 'Frank Sinatra', 'Dwight Schrute (The Office)'],
@@ -552,8 +656,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'You are likely fluent in Words of Affirmation and Acts of Service, as you need to hear you are valued and love to show you care through practical support.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a popular and active friend, often the one organizing get-togethers. You have a wide social circle and are known for your loyalty and generosity.',
-      parenthood: 'As a parent, you are warm, affectionate, and highly involved. You are dedicated to creating a secure and happy home and can sometimes be a bit of a "helicopter parent" out of love.',
+      friendships: {
+        description: 'You are a popular and active friend, often the one organizing get-togethers. You have a wide social circle and are known for your loyalty and generosity.',
+        strengths: ['Loyal, generous, and warm-hearted', 'Excellent at organizing social events', 'Makes friends feel cared for and supported'],
+        weaknesses: ['Can be needy for appreciation and validation', 'Can be meddling or overly involved in friends\' lives', 'Very sensitive to criticism or perceived slights'],
+      },
+      parenthood: {
+        description: 'As a parent, you are warm, affectionate, and highly involved. You are dedicated to creating a secure and happy home and can sometimes be a bit of a "helicopter parent" out of love.',
+        strengths: ['Warm, affectionate, and highly attentive', 'Creates a secure and happy home environment', 'Excellent at managing the practical needs of the family'],
+        weaknesses: ['Can be a "helicopter parent," stifling independence', 'Vulnerable to criticism about their parenting style', 'May be too concerned with appearances and social status'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Taylor Swift', 'Jennifer Lopez', 'Steve Harvey', 'Monica Geller (Friends)'],
@@ -592,8 +704,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Words of Affirmation and Quality Time are vital for you, as you thrive on verbal encouragement and deep, shared connection.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a popular and trusted friend, known for your ability to listen and give inspiring advice. People are drawn to your warmth and positive energy.',
-      parenthood: 'As a parent, you are deeply invested in your children\'s development, acting as their biggest cheerleader and guide. You strive to raise them to be compassionate and confident.',
+      friendships: {
+        description: 'You are a popular and trusted friend, known for your ability to listen and give inspiring advice. People are drawn to your warmth and positive energy.',
+        strengths: ['Inspiring, supportive, and motivational', 'Warm, empathetic, and an excellent listener', 'Natural at creating a positive social atmosphere'],
+        weaknesses: ['Can become overly involved in friends\' problems', 'Can be too selfless, neglecting their own needs', 'Highly sensitive to conflict and disharmony'],
+      },
+      parenthood: {
+        description: 'As a parent, you are deeply invested in your children\'s development, acting as their biggest cheerleader and guide. You strive to raise them to be compassionate and confident.',
+        strengths: ['Deeply supportive and encouraging cheerleader', 'Fosters compassion and emotional intelligence', 'Excellent at motivating and inspiring their children'],
+        weaknesses: ['Can be smothering or overly involved', 'May neglect their own needs for the sake of their children', 'Struggles to make tough decisions that might upset their child'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Barack Obama', 'Oprah Winfrey', 'Martin Luther King Jr.', 'Daenerys Targaryen (Game of Thrones)'],
@@ -632,8 +752,16 @@ export const PERSONALITY_TYPES = {
       yourLoveLanguage: 'Your love language is often Acts of Service, as you focus on helping your partner succeed in a practical, goal-oriented way.',
     },
     socialCirclesFamilyLife: {
-      friendships: 'You are a strong, confident friend who loves to engage in intellectual debates and help your friends achieve their goals. You seek out friends who are also ambitious and competent.',
-      parenthood: 'As a parent, you are focused on raising children who are intelligent, independent, and successful. You set high standards and provide the structure to help them achieve great things.',
+      friendships: {
+        description: 'You are a strong, confident friend who loves to engage in intellectual debates and help your friends achieve their goals. You seek out friends who are also ambitious and competent.',
+        strengths: ['Helps friends strategize and achieve their goals', 'Confident, loyal, and intellectually engaging', 'Not afraid of constructive conflict'],
+        weaknesses: ['Can be domineering or controlling', 'Impatient with friends who are less ambitious or decisive', 'May seem emotionally detached or ruthless'],
+      },
+      parenthood: {
+        description: 'As a parent, you are focused on raising children who are intelligent, independent, and successful. You set high standards and provide the structure to help them achieve great things.',
+        strengths: ['Excellent at raising successful, independent children', 'Provides structure and sets high expectations', 'Fosters ambition and strategic thinking'],
+        weaknesses: ['Can be controlling and overly demanding', 'Emotionally distant and uncomfortable with feelings', 'Intolerant of failure or inefficiency'],
+      },
     },
     culturalConnections: {
       famousMatches: ['Steve Jobs', 'Jacqueline A. Sharp (House of Cards)', 'Mary Talbot (Downton Abbey)', 'Tony Stark (Iron Man)'],
