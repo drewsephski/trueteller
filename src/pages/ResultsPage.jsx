@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLocation, Link } from 'react-router-dom';
 import { PERSONALITY_TYPES } from '../data/personalityTypes';
 import { questions } from '../data/questions';
@@ -57,6 +58,10 @@ const ResultsPage = () => {
   if (!result) {
     return (
       <div className="results-container container section">
+        <Helmet>
+          <title>Test Results | TrueYouTeller</title>
+          <meta name="description" content="Complete the personality test to see your results and discover your true self." />
+        </Helmet>
         <div className="results-card">
           <h2>Oops!</h2>
           <p>It seems you haven't taken the test yet.</p>
@@ -76,6 +81,10 @@ const ResultsPage = () => {
 
   return (
     <div className="results-container container section">
+      <Helmet>
+        <title>Your Personality Result: {result.name} ({result.code}) | TrueYouTeller</title>
+        <meta name="description" content={`You are a ${result.name} (${result.code}). Discover your spirit animal, and learn more about your personality type.`} />
+      </Helmet>
       <div className="results-card">
         <h2 className="result-name">You are {result.name} ({result.code})</h2>
         <p className="result-description">{result.description}</p>

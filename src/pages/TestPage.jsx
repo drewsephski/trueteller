@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { questions, answerOptions } from '../data/questions';
 import './TestPage.css';
@@ -61,6 +62,10 @@ const TestPage = () => {
   if (!nameSubmitted) {
     return (
       <div className="test-container container section">
+        <Helmet>
+          <title>Personality Test - Discover Your True Self | TrueYouTeller</title>
+          <meta name="description" content="Start the TrueYouTeller personality test to discover your true self. Answer a series of fun and engaging questions to get your instant results." />
+        </Helmet>
         <div className="test-card">
           <h2 className="welcome-heading">Welcome to the Test</h2>
           <p className="welcome-subheading">Please enter your name to begin.</p>
@@ -88,6 +93,10 @@ const TestPage = () => {
 
   return (
     <div className="test-container container section">
+      <Helmet>
+        <title>Personality Test - Discover Your True Self | TrueYouTeller</title>
+        <meta name="description" content="Start the TrueYouTeller personality test to discover your true self. Answer a series of fun and engaging questions to get your instant results." />
+      </Helmet>
       <div className="test-card">
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${progress}%` }}></div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLocation, Link } from 'react-router-dom';
 import './DetailedResultsPage.css';
 import { FaStar, FaBriefcase, FaHeart, FaUsers, FaFilm } from 'react-icons/fa';
@@ -10,6 +11,10 @@ const DetailedResultsPage = () => {
   if (!result) {
     return (
       <div className="container section">
+        <Helmet>
+          <title>Detailed Results | TrueYouTeller</title>
+          <meta name="description" content="Complete the personality test to see your detailed results and discover your true self." />
+        </Helmet>
         <h2>Oops! No result found.</h2>
         <p>It seems you've accessed this page directly. Please take the test first to see your results.</p>
         <Link to="/" className="btn btn-primary">Back to Home</Link>
@@ -33,6 +38,10 @@ const DetailedResultsPage = () => {
 
   return (
     <div className="detailed-results-page container section">
+      <Helmet>
+        <title>Detailed Personality Results for {result.name} ({result.code}) | TrueYouTeller</title>
+        <meta name="description" content={`Dive deep into your personality as a ${result.name} (${result.code}). Explore your strengths, weaknesses, career insights, and more.`} />
+      </Helmet>
       <header className="detailed-header">
         <img src={getSpiritAnimalImage(result.spiritAnimal)} alt={result.spiritAnimal} className="spirit-animal-image-detailed" />
         <h1>{result.name} ({result.code})</h1>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { saveContactMessage } from '../firebase/config';
 import './ContactUsPage.css';
 
@@ -38,6 +39,10 @@ const ContactUsPage = () => {
 
   return (
     <div className="contact-us-container container section">
+      <Helmet>
+        <title>Contact TrueYouTeller - We'd Love to Hear From You</title>
+        <meta name="description" content="Have questions, feedback, or just want to say hello? Contact the TrueYouTeller team. We're here to help you on your journey of self-discovery." />
+      </Helmet>
       <div className="contact-us-content">
         <h2>Contact Us</h2>
         <p>

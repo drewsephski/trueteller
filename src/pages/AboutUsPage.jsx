@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import './AboutUsPage.css';
 import TeamMemberCard from '../components/TeamMemberCard';
 
@@ -22,6 +23,10 @@ const teamMembers = [
 const AboutUsPage = () => {
   return (
     <div className="about-us-container container section">
+      <Helmet>
+        <title>About TrueYouTeller - Our Story and Mission</title>
+        <meta name="description" content="Learn about the story and mission behind TrueYouTeller. Meet the team dedicated to helping you discover your true self through fun and insightful personality quizzes." />
+      </Helmet>
       <div className="about-us-content">
         <h2>About TrueYouTeller</h2>
         <p>

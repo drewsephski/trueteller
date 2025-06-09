@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
 import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt } from 'react-icons/fa';
@@ -10,6 +11,10 @@ import InsideOutQuiz from '../components/MiniGames/insideout/InsideOutQuiz';
 const LandingPage = () => {
   return (
     <div className="landing-page">
+      <Helmet>
+        <title>TrueYouTeller - Fun Personality Quizzes to Discover Yourself</title>
+        <meta name="description" content="Take our fun and insightful personality quizzes to discover your true self. Get instant results and gain insight into your unique strengths and quirks." />
+      </Helmet>
       <header className="landing-header">
         <img src={logo} alt="Crystal Ball" className="crystal-ball-image" />
         <h1>Welcome to TrueYouTeller!</h1>
