@@ -140,7 +140,7 @@ export const PERSONALITY_TYPES = {
       },
     },
     culturalConnections: {
-      famousMatches: ['Martin Luther King Jr.', 'Lisa Simpson', 'Lady Gaga', 'J-Hope'],
+      famousMatches: ['Jon Snow', 'Lisa Simpson', 'Lady Gaga', 'Jung Hoseok'],
     },
   },
   INTJ: {

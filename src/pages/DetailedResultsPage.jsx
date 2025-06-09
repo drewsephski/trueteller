@@ -168,7 +168,8 @@ const DetailedResultsPage = () => {
                     .replace(/\s+/g, '-')
                     .trim();
 
-                const imageUrl = new URL(`../assets/famousMatches/${result.code}/${imageName}.png`, import.meta.url).href;
+                const extension = match === 'Lisa Simpson' ? 'jpeg' : 'png';
+                const imageUrl = new URL(`../assets/famousMatches/${result.code}/${imageName}.${extension}`, import.meta.url).href;
 
                 return (
                     <div className="celebrity-card" key={match}>
