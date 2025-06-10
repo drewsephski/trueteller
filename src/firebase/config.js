@@ -58,4 +58,25 @@ export const saveContactMessage = async (formData) => {
   }
 };
 
+// Function to save feedback form data to Firebase
+export const saveFeedback = async (formData) => {
+  try {
+    const docRef = await addDoc(collection(db, 'feedback'), {
+      name: formData.name,
+      email: formData.email,
+      rating: parseInt(formData.rating),
+      feedback: formData.feedback,
+      timestamp: serverTimestamp(),
+      createdAt: new Date().toISOString(),
+      status: 'new' // to track if the feedback has been reviewed
+    });
+    
+    console.log('Feedback saved with ID: ', docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error saving feedback: ', error);
+    throw error;
+  }
+};
+
 export { db }; 
