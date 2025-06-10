@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![TrueYouTeller Logo](src/assets/trueyouteller.png)
-
 **✨ Your magical guide to self-discovery! ✨**
 
 *Discover your true personality with our fun, insightful, and delightfully cute personality test*
