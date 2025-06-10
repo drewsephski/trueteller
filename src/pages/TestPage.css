@@ -206,7 +206,7 @@
 }
 
 @media (max-width: 480px) {
-  .test-card {
+  /* .test-card {
     padding: 1rem;
   }
 
@@ -224,5 +224,9 @@
 
   .likert-scale .answer-btn {
     flex-grow: 0;
+  } */
+
+  .answer-btn {
+    flex-direction: column;
   }
 } 
