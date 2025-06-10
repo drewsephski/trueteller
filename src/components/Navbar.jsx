@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import './Navbar.css';
+import '../styles/Navbar.css';
 import logo from '../assets/trueyouteller.png';
 
 const Navbar = () => {

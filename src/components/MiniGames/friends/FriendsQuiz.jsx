@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { quizData } from '../../../data/mini-games/friendsQuizData';
 import Question from './Question';
 import Result from './Result';
-import './FriendsQuiz.css';
+import '../../../styles/FriendsQuiz.css';
 import friendsImage from '../../../assets/miniGames/friends.png';
 
 const characterScores = {

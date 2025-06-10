@@ -4,7 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { PERSONALITY_TYPES } from '../data/personalityTypes';
 import { questions } from '../data/questions';
 import { saveTestResult } from '../firebase/config';
-import './ResultsPage.css';
+import '../styles/ResultsPage.css';
 
 const ResultsPage = () => {
   const location = useLocation();

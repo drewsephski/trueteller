@@ -6,7 +6,7 @@ import ContactUsPage from './pages/ContactUsPage';
 import TestPage from './pages/TestPage';
 import ResultsPage from './pages/ResultsPage';
 import DetailedResultsPage from './pages/DetailedResultsPage';
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

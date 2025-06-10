@@ -1,5 +1,5 @@
 import React from 'react';
-import './TeamMemberCard.css';
+import '../styles/TeamMemberCard.css';
 
 const TeamMemberCard = ({ name, role, imageUrl, githubUrl, linkedinUrl }) => {
   return (

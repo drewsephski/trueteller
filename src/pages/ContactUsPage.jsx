@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { saveContactMessage } from '../firebase/config';
-import './ContactUsPage.css';
+import '../styles/ContactUsPage.css';
 
 const ContactUsPage = () => {
   const [formData, setFormData] = useState({

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Dhruv from '../assets/creators/dhruv.png';
 import Sanaj from '../assets/creators/sanaj.png';
-import './AboutUsPage.css';
+import '../styles/AboutUsPage.css';
 import TeamMemberCard from '../components/TeamMemberCard';
 
 const teamMembers = [

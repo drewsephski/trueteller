@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, Link } from 'react-router-dom';
-import './DetailedResultsPage.css';
+import '../styles/DetailedResultsPage.css';
 import { FaStar, FaBriefcase, FaHeart, FaUsers, FaFilm } from 'react-icons/fa';
 
 const DetailedResultsPage = () => {

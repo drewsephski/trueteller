@@ -3,7 +3,7 @@ import { quizData } from '../../../data/mini-games/insideOutQuizData';
 import Question from './Question';
 import Result from './Result';
 import insideOutImage from '../../../assets/miniGames/insideOut.png';
-import './InsideOutQuiz.css';
+import '../../../styles/InsideOutQuiz.css';
 
 const characterScores = {
   'Joy': 0,

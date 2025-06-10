@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import './LandingPage.css';
+import '../styles/LandingPage.css';
 import { Link } from 'react-router-dom';
 import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt } from 'react-icons/fa';
 import { GiCrystalBall } from 'react-icons/gi';

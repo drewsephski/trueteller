@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { questions, answerOptions } from '../data/questions';
-import './TestPage.css';
+import '../styles/TestPage.css';
 
 const TestPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
