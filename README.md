@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![TrueYouTeller Logo](src/assets/trueyouteller_logo-removebg.png)
+![TrueYouTeller Logo](src/assets/trueyouteller.png)
 
 **✨ Your magical guide to self-discovery! ✨**
 
@@ -173,7 +173,7 @@ trueyouteller/
 
 **🔮 Ready to discover your true self? ✨**
 
-[**🚀 Take the Test Now!**](#)
+[**🚀 Take the Test Now!**](https://www.trueyouteller.com)
 
 *Made with 💖 by the TrueYouTeller team*
 
