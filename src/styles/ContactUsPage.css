@@ -50,8 +50,21 @@
   border-color: var(--bright-orange);
 }
 
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #e74c3c;
+}
+
 .form-group textarea {
   resize: vertical;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  font-weight: 500;
 }
 
 .contact-form .btn {

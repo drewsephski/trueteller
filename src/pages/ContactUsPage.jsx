@@ -1,39 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import { saveContactMessage } from '../firebase/config';
+import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import '../styles/ContactUsPage.css';
 
 const ContactUsPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
+  
+  const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
-
+    
     try {
-      await saveContactMessage(formData);
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' }); // Reset form
+      reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
 
@@ -48,18 +49,26 @@ const ContactUsPage = () => {
         <p>
           Have questions, feedback, or just want to say hello? Drop us a message below!
         </p>
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form ref={form} className="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input 
               type="text" 
               id="name" 
               name="name" 
-              value={formData.name}
-              onChange={handleInputChange}
-              required 
+              {...register("name", {
+                required: "Name is required",
+                minLength: {
+                  value: 2,
+                  message: "Name must be at least 2 characters"
+                }
+              })}
+              placeholder="Your name"
               disabled={isSubmitting}
             />
+            {errors.name && (
+              <p className="error-message">{errors.name.message}</p>
+            )}
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -67,11 +76,19 @@ const ContactUsPage = () => {
               type="email" 
               id="email" 
               name="email" 
-              value={formData.email}
-              onChange={handleInputChange}
-              required 
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email address"
+                }
+              })}
+              placeholder="your@email.com"
               disabled={isSubmitting}
             />
+            {errors.email && (
+              <p className="error-message">{errors.email.message}</p>
+            )}
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
@@ -79,11 +96,19 @@ const ContactUsPage = () => {
               id="message" 
               name="message" 
               rows="5" 
-              value={formData.message}
-              onChange={handleInputChange}
-              required
+              {...register("message", {
+                required: "Message is required",
+                minLength: {
+                  value: 10,
+                  message: "Message must be at least 10 characters"
+                }
+              })}
+              placeholder="Your message"
               disabled={isSubmitting}
             ></textarea>
+            {errors.message && (
+              <p className="error-message">{errors.message.message}</p>
+            )}
           </div>
           
           {submitStatus === 'success' && (
