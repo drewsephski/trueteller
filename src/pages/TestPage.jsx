@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { questions, answerOptions } from '../data/questions';
 import '../styles/TestPage.css';
 
@@ -11,6 +12,8 @@ const TestPage = () => {
   const [nameSubmitted, setNameSubmitted] = useState(false);
   const navigate = useNavigate();
 
+  const [direction, setDirection] = useState(1);
+
   const handleAnswerSelect = (value) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestionIndex] = value;
@@ -18,6 +21,7 @@ const TestPage = () => {
 
     const nextQuestionIndex = currentQuestionIndex + 1;
     if (nextQuestionIndex < questions.length) {
+      setDirection(1);
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
       navigate('/results', { state: { answers: newAnswers, name } });
@@ -26,6 +30,7 @@ const TestPage = () => {
 
   const handlePrev = () => {
     if (currentQuestionIndex > 0) {
+      setDirection(-1);
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
   };
@@ -58,6 +63,23 @@ const TestPage = () => {
 
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+  };
 
   if (!nameSubmitted) {
     return (
@@ -101,30 +123,46 @@ const TestPage = () => {
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${progress}%` }}></div>
         </div>
-        <div className="question-section">
-          <p className="statement-label">Statement {currentQuestionIndex + 1}/{questions.length}</p>
-          <p className="question-text">{currentQuestion.statement}</p>
-        </div>
-        <div className="answer-section likert-scale">
-          {answerOptions.map((option) => (
-            <button
-              key={option.value}
-              className={`btn answer-btn ${answers[currentQuestionIndex] === option.value ? 'selected' : ''}`}
-              onClick={() => handleAnswerSelect(option.value)}
-            >
-              {option.text}
-            </button>
-          ))}
-        </div>
+        <AnimatePresence initial={false} custom={direction} mode="wait">
+          <motion.div
+            key={currentQuestionIndex}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            className="question-container"
+          >
+            <div className="question-section">
+              <p className="statement-label">Statement {currentQuestionIndex + 1}/{questions.length}</p>
+              <p className="question-text">{currentQuestion.statement}</p>
+            </div>
+            <div className="answer-section likert-scale">
+              {answerOptions.map((option) => (
+                <button
+                  key={option.value}
+                  className={`btn answer-btn ${answers[currentQuestionIndex] === option.value ? 'selected' : ''}`}
+                  onClick={() => handleAnswerSelect(option.value)}
+                >
+                  {option.text}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
         <div className="navigation-buttons">
-            <button
-              className="btn prev-btn"
-              onClick={handlePrev}
-              disabled={currentQuestionIndex === 0}
-            >
-              Previous
-            </button>
-          </div>
+          <button
+            className="btn prev-btn"
+            onClick={handlePrev}
+            disabled={currentQuestionIndex === 0}
+          >
+            Previous
+          </button>
+        </div>
       </div>
     </div>
   );
