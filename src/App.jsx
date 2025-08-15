@@ -11,6 +11,7 @@ import PersonalityTypesPage from './pages/PersonalityTypesPage';
 import UserProfile from './components/UserProfile';
 import Leaderboard from './components/Leaderboard';
 import FriendComparison from './components/FriendComparison';
+import AIReportPage from './pages/AIReportPage'; // Import the new page
 import './styles/App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/compare" element={<FriendComparison />} />
+          <Route path="/ai-report" element={<AIReportPage />} />
         </Routes>
       </main>
     </div>
