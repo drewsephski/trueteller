@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth, signInAnonymously, onAuthStateChanged } from 'firebase/auth';
 import {
   getFirestore,
   collection,
@@ -33,6 +34,29 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firestore
 const db = getFirestore(app);
+
+// Initialize Firebase Auth
+export const auth = getAuth(app);
+
+// Function to sign in the user anonymously
+export const signInAnonymouslyIfNeeded = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      unsubscribe(); // Unsubscribe to avoid multiple calls
+      if (user) {
+        resolve(user);
+      } else {
+        signInAnonymously(auth)
+          .then((userCredential) => {
+            resolve(userCredential.user);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      }
+    });
+  });
+};
 
 // Function to save test result to Firebase
 export const saveTestResult = async (name, personalityType, answers) => {
@@ -302,6 +326,38 @@ export const getUserProfile = async (name) => {
   } catch (error) {
     console.error('Error getting user profile:', error);
     throw error;
+  }
+};
+
+// Function to save quiz progress
+export const saveQuizProgress = async (userId, name, answers, currentQuestionIndex, completed = false) => {
+  try {
+    const progressRef = doc(db, 'quizProgress', userId);
+    await setDoc(progressRef, {
+      name,
+      answers,
+      currentQuestionIndex,
+      completed,
+      timestamp: serverTimestamp(),
+    });
+  } catch (error) {
+    console.error('Error saving quiz progress:', error);
+  }
+};
+
+// Function to get quiz progress
+export const getQuizProgress = async (userId) => {
+  try {
+    const progressRef = doc(db, 'quizProgress', userId);
+    const docSnap = await getDoc(progressRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error('Error getting quiz progress:', error);
+    return null;
   }
 };
 

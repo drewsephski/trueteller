@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { questions, answerOptions } from '../data/questions';
+import { useAuth } from '../context/AuthContext';
+import { saveQuizProgress, getQuizProgress } from '../firebase/config';
 import '../styles/TestPage.css';
 
 const TestPage = () => {
+  const { currentUser } = useAuth();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const [name, setName] = useState('');
@@ -13,6 +16,31 @@ const TestPage = () => {
   const navigate = useNavigate();
 
   const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    if (currentUser) {
+      getQuizProgress(currentUser.uid).then(progress => {
+        if (progress) {
+          if (progress.completed) {
+            navigate('/results', { state: { answers: progress.answers, name: progress.name } });
+          } else {
+            setAnswers(progress.answers);
+            setCurrentQuestionIndex(progress.currentQuestionIndex);
+            if (progress.name) {
+              setName(progress.name);
+              setNameSubmitted(true);
+            }
+          }
+        }
+      });
+    }
+  }, [currentUser, navigate]);
+
+  useEffect(() => {
+    if (currentUser && nameSubmitted) {
+      saveQuizProgress(currentUser.uid, name, answers, currentQuestionIndex);
+    }
+  }, [answers, currentQuestionIndex, currentUser, name, nameSubmitted]);
 
   const handleAnswerSelect = (value) => {
     const newAnswers = [...answers];
@@ -24,6 +52,7 @@ const TestPage = () => {
       setDirection(1);
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
+      saveQuizProgress(currentUser.uid, name, newAnswers, nextQuestionIndex, true);
       navigate('/results', { state: { answers: newAnswers, name } });
     }
   };
