@@ -21,7 +21,7 @@
 **TrueYouTeller** is a delightful personality test website that helps you discover your unique traits, strengths, and quirks! Our magical crystal ball reveals one of **16 distinct personality types** complete with:
 
 - 🦫 **Spirit Animals** that represent your personality
-- 💪 **Strengths & Growth Areas** 
+- 💪 **Strengths & Growth Areas**
 - 💼 **Career Insights & Recommendations**
 - ❤️ **Relationship & Love Language Insights**
 - 👨‍👩‍👧‍👦 **Family & Social Circle Dynamics**
@@ -30,6 +30,7 @@
 ## ✨ Features
 
 ### 🎯 Core Experience
+
 - **📝 Engaging Personality Test** - Fun, thought-provoking questions that reveal your true self
 - **⚡ Instant Results** - Get your complete personality analysis immediately
 - **🔍 Detailed Insights** - Comprehensive breakdown of your personality type
@@ -37,12 +38,16 @@
 - **📱 Responsive Design** - Perfect experience on all devices
 
 ### 🎮 Mini-Games
+
 Discover even more about yourself with our themed mini-games:
+
 - **👫 Friends Quiz** - Which Friends character matches your personality?
 - **🎭 Inside Out Quiz** - Which emotion from Pixar's Inside Out are you?
 
 ### 📊 Comprehensive Personality Analysis
+
 Each result includes:
+
 - **🐾 Spirit Animal** with cute emoji representation
 - **💡 Personal Growth Recommendations**
 - **🔋 What Energizes vs. Drains You**
@@ -56,23 +61,27 @@ Each result includes:
 ### 📋 Prerequisites
 
 Make sure you have the following installed:
+
 - [Node.js](https://nodejs.org/) (v14 or higher)
 - [Yarn](https://yarnpkg.com/) package manager
 
 ### 🛠️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/your_username/trueyouteller.git
    cd trueyouteller
    ```
 
 2. **Install dependencies**
+
    ```bash
    yarn install
    ```
 
 3. **Start the development server**
+
    ```bash
    yarn dev
    ```
@@ -142,13 +151,17 @@ trueyouteller/
 ## 🎮 Mini-Games
 
 ### 👫 Friends Quiz
+
 *"Could this BE any more accurate?"*
+
 - Discover which Friends character matches your personality
 - Features all main characters with detailed personality breakdowns
 - Fun references and quotes from the show
 
 ### 🎭 Inside Out Quiz  
+
 *"Which emotion drives your inner world?"*
+
 - Based on Pixar's beloved Inside Out movie
 - Explores your dominant emotions and psychological patterns
 - Colorful, emotion-themed results

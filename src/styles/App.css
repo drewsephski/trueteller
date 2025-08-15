@@ -1,5 +1,11 @@
+@import "tailwindcss";
 /* Root Variables - Color Scheme */
 :root {
+  --deep-purple: #5B2C6F;
+  --bright-orange: #F39C12;
+  --lavender: #E8DAEF;
+  --white: #FFFFFF;
+  --dark-navy: #2C3E50;
   --deep-purple: #5B2C6F;
   --bright-orange: #F39C12;
   --lavender: #E8DAEF;
@@ -131,5 +137,17 @@ h3 {
   
   .section {
     padding: 40px 0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

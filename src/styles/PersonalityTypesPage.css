@@ -1,0 +1,315 @@
+:root {
+  --personality-grid-gap: 24px;
+  --personality-grid-mobile-gap: 16px;
+  --personality-card-min-width: 250px;
+  --personality-card-mobile-min-width: 200px;
+  --touch-target-size: 44px;
+  --page-padding-desktop: 56px 20px;
+  --page-padding-tablet: 44px 16px;
+  --page-padding-mobile: 36px 14px;
+  --page-padding-small: 28px 10px;
+}
+
+.personality-types-page {
+  min-height: 100vh;
+  padding: var(--page-padding-desktop);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced responsive design with 3-column layout for 1024px-1440px */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .personality-types-grid {
+    grid-template-columns: repeat(3, minmax(var(--personality-card-min-width), 1fr));
+    gap: calc(var(--personality-grid-gap) * 0.8);
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .personality-types-grid {
+    grid-template-columns: repeat(4, minmax(var(--personality-card-min-width), 1fr));
+    gap: var(--personality-grid-gap);
+    max-width: 1400px;
+  }
+}
+
+.personality-types-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  font-size: 44px;
+  color: #9b59b6;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.page-header p {
+  font-size: 18px;
+  color: #9b59b6;
+  margin: 0;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.personality-types-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(var(--personality-card-min-width), 1fr));
+  gap: var(--personality-grid-gap);
+  max-width: 1280px;
+  margin: 0 auto 64px;
+  padding: 0 12px;
+  position: relative;
+  z-index: 1;
+  auto-fit: minmax(var(--personality-card-min-width), 1fr);
+}
+
+.page-footer {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 0 12px 8px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.page-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  border-radius: 0;
+}
+
+.info-section {
+  position: relative;
+  z-index: 1;
+}
+
+.info-section h2 {
+  font-size: 28px;
+  color: #9b59b6;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: -0.3px;
+}
+
+.info-section p {
+  font-size: 16px;
+  color: #9b59b6;
+  line-height: 1.85;
+  margin: 0 0 16px 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.info-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced responsive design with granular breakpoints and improved typography scaling */
+@media (max-width: 1023px) {
+  .personality-types-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+  }
+  
+  .page-header h1 {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+  
+  .page-header p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  
+  .personality-types-page {
+    padding: var(--page-padding-tablet);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .personality-types-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    max-width: 960px;
+  }
+  
+  .page-header h1 {
+    font-size: 38px;
+  }
+  
+  .page-header p {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .personality-types-page {
+    padding: var(--page-padding-mobile);
+  }
+  
+  .personality-types-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--personality-grid-mobile-gap);
+    max-width: 100%;
+    margin-bottom: 48px;
+  }
+  
+  .page-header h1 {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+  
+  .page-header p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .page-footer {
+    padding: 0 10px 6px;
+    margin: 0 0 32px;
+  }
+  
+  .info-section h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  
+  .info-section p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .personality-types-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+  }
+  
+  .page-header h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .personality-types-page {
+    padding: var(--page-padding-small);
+  }
+  
+  .personality-types-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  
+  .page-header h1 {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  
+  .page-header p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .page-footer {
+    padding: 0 8px 4px;
+    margin: 0 0 28px;
+  }
+  
+  .info-section h2 {
+    font-size: 22px;
+    line-height: 1.15;
+  }
+  
+  .info-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .personality-card {
+    min-height: 280px;
+    padding: 20px;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.personality-card {
+  animation: none;
+  opacity: 1;
+}
+
+/* Ensure all cards are visible after animation */
+.personality-types-grid {
+  animation: none;
+}
+
+/* Loading animation */
+.personality-types-page {
+  position: relative;
+}
+
+.personality-types-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  z-index: -1;
+}

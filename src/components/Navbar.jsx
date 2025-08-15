@@ -30,6 +30,33 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
+            <NavLink to="/personality-types" className="nav-links" onClick={closeMobileMenu}>
+              Personality Types
+            </NavLink>
+          </li>
+          <li className="nav-item dropdown">
+            <span className="nav-links dropdown-toggle" onClick={closeMobileMenu}>
+              Gamify ▼
+            </span>
+            <ul className="dropdown-menu">
+              <li className="dropdown-item">
+                <NavLink to="/profile" className="dropdown-link" onClick={closeMobileMenu}>
+                  🏆 My Profile
+                </NavLink>
+              </li>
+              <li className="dropdown-item">
+                <NavLink to="/leaderboard" className="dropdown-link" onClick={closeMobileMenu}>
+                  📊 Leaderboard
+                </NavLink>
+              </li>
+              <li className="dropdown-item">
+                <NavLink to="/compare" className="dropdown-link" onClick={closeMobileMenu}>
+                  🔄 Compare Friends
+                </NavLink>
+              </li>
+            </ul>
+          </li>
+          <li className="nav-item">
             <NavLink to="/feedback" className="nav-links" onClick={closeMobileMenu}>
               Feedback
             </NavLink>

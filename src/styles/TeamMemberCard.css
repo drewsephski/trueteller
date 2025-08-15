@@ -1,3 +1,13 @@
+:root {
+  --team-card-min-width: 280px;
+  --team-card-max-width: 400px;
+  --team-card-aspect-ratio: 3 / 4;
+  --team-card-min-height: 400px;
+  --team-card-padding: 1.5rem;
+  --team-card-image-height: 220px;
+  --touch-target-size: 44px;
+}
+
 .team-member-card {
   background: #fff;
   border-radius: 15px;
@@ -5,7 +15,11 @@
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  width: 280px;
+  width: var(--team-card-min-width);
+  min-height: var(--team-card-min-height);
+  aspect-ratio: var(--team-card-aspect-ratio);
+  display: flex;
+  flex-direction: column;
 }
 
 .team-member-card:hover {
@@ -15,8 +29,9 @@
 
 .card-image-container {
   width: 100%;
-  height: 220px;
+  height: var(--team-card-image-height);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .card-image {
@@ -31,7 +46,11 @@
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: var(--team-card-padding);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-name {
@@ -52,15 +71,76 @@
   margin: 0 0.5rem;
   font-weight: 600;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target-size);
+  min-height: var(--touch-target-size);
+  padding: 0.5rem;
+  border-radius: 50%;
 }
 
 .card-socials a:hover {
   color: var(--deep-purple);
 }
 
-@media screen and (max-width: 768px) {
+/* Responsive design with granular breakpoints */
+@media screen and (max-width: 640px) {
   .team-member-card {
-    width: 90%;
-    max-width: 340px;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    aspect-ratio: auto;
+    min-height: auto;
   }
-} 
+  
+  .card-image-container {
+    height: 180px;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-name {
+    font-size: 1.25rem;
+  }
+  
+  .card-socials a {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0.25rem;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 896px) {
+  .team-member-card {
+    width: minmax(300px, 1fr);
+    max-width: 360px;
+  }
+  
+  .card-image-container {
+    height: 200px;
+  }
+  
+  .card-content {
+    padding: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 897px) and (max-width: 1023px) {
+  .team-member-card {
+    width: minmax(320px, 1fr);
+    max-width: 380px;
+  }
+  
+  .card-image-container {
+    height: 210px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .team-member-card {
+    width: minmax(var(--team-card-min-width), var(--team-card-max-width));
+  }
+}
