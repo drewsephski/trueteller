@@ -1,0 +1,227 @@
+/* Clerk Authentication Pages Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.auth-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--deep-purple);
+  margin-bottom: 10px;
+  font-family: "'Nunito', sans-serif";
+}
+
+.auth-subtitle {
+  color: var(--dark-navy);
+  font-size: 1rem;
+  opacity: 0.8;
+  font-family: "'Nunito', sans-serif";
+}
+
+/* Clerk Component Styling Override */
+.clerk-root {
+  width: 100% !important;
+}
+
+.clerk-root .cl-component {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.clerk-root .cl-formButton {
+  background: var(--deep-purple) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+}
+
+.clerk-root .cl-formButton:hover {
+  background: var(--bright-orange) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3) !important;
+}
+
+.clerk-root .cl-input {
+  border: 2px solid #e1e5e9 !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  font-size: 1rem !important;
+  margin-bottom: 16px !important;
+  transition: all 0.3s ease !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.clerk-root .cl-input:focus {
+  outline: none !important;
+  border-color: var(--deep-purple) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.clerk-root .cl-socialButtons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin-top: 20px !important;
+}
+
+.clerk-root .cl-socialButton {
+  border: 2px solid #e1e5e9 !important;
+  border-radius: 10px !important;
+  padding: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: white !important;
+  color: var(--dark-navy) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.clerk-root .cl-socialButton:hover {
+  border-color: var(--deep-purple) !important;
+  background: rgba(102, 126, 234, 0.05) !important;
+  transform: translateY(-2px) !important;
+}
+
+.clerk-root .cl-divider {
+  text-align: center !important;
+  margin: 20px 0 !important;
+  position: relative !important;
+}
+
+.clerk-root .cl-divider::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: #e1e5e9 !important;
+}
+
+.clerk-root .cl-divider span {
+  background: rgba(255, 255, 255, 0.95) !important;
+  padding: 0 15px !important;
+  color: var(--dark-navy) !important;
+  font-size: 0.9rem !important;
+}
+
+.clerk-root .cl-footer {
+  text-align: center !important;
+  margin-top: 20px !important;
+}
+
+.clerk-root .cl-footer a {
+  color: var(--deep-purple) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.clerk-root .cl-footer a:hover {
+  color: var(--bright-orange) !important;
+  text-decoration: underline !important;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .auth-container {
+    padding: 15px;
+  }
+  
+  .auth-wrapper {
+    padding: 30px 25px;
+    margin: 10px;
+  }
+  
+  .auth-title {
+    font-size: 1.75rem;
+  }
+  
+  .clerk-root .cl-formButton {
+    padding: 14px 20px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .auth-wrapper {
+    padding: 25px 20px;
+  }
+  
+  .auth-title {
+    font-size: 1.5rem;
+  }
+  
+  .clerk-root .cl-input {
+    padding: 10px 12px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Loading State */
+.auth-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.auth-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(102, 126, 234, 0.1);
+  border-left: 4px solid var(--deep-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

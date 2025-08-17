@@ -8,11 +8,8 @@ import {
   where,
   getDocs,
   updateDoc,
-  doc,
   orderBy,
   limit,
-  getDoc,
-  setDoc,
   arrayUnion,
   increment
 } from 'firebase/firestore';
@@ -35,10 +32,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Function to save test result to Firebase
-export const saveTestResult = async (name, personalityType, answers) => {
+export const saveTestResult = async (userId, personalityType, answers) => {
   try {
     const docRef = await addDoc(collection(db, 'personalityTestResults'), {
-      name: name,
+      userId: userId,
       personalityType: personalityType.code,
       personalityName: personalityType.name,
       answers: answers,
@@ -96,10 +93,10 @@ export const saveFeedback = async (formData) => {
 };
 
 // Function to get or create user profile
-export const getOrCreateUserProfile = async (name) => {
+export const getOrCreateUserProfile = async (userId) => {
   try {
     const usersRef = collection(db, 'userProfiles');
-    const q = query(usersRef, where('name', '==', name));
+    const q = query(usersRef, where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {
@@ -112,7 +109,7 @@ export const getOrCreateUserProfile = async (name) => {
     } else {
       // Create new user profile
       const newProfile = {
-        name: name,
+        userId: userId,
         level: 1,
         xp: 0,
         totalXP: 0,
@@ -138,10 +135,10 @@ export const getOrCreateUserProfile = async (name) => {
 };
 
 // Function to update user XP and calculate level
-export const updateUserXP = async (name, xpToAdd) => {
+export const updateUserXP = async (userId, xpToAdd) => {
   try {
     const usersRef = collection(db, 'userProfiles');
-    const q = query(usersRef, where('name', '==', name));
+    const q = query(usersRef, where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {
@@ -173,10 +170,10 @@ export const updateUserXP = async (name, xpToAdd) => {
 };
 
 // Function to update user streak
-export const updateUserStreak = async (name, currentDate) => {
+export const updateUserStreak = async (userId, currentDate) => {
   try {
     const usersRef = collection(db, 'userProfiles');
-    const q = query(usersRef, where('name', '==', name));
+    const q = query(usersRef, where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {
@@ -219,10 +216,10 @@ export const updateUserStreak = async (name, currentDate) => {
 };
 
 // Function to add achievement to user
-export const addAchievement = async (name, achievementId) => {
+export const addAchievement = async (userId, achievementId) => {
   try {
     const usersRef = collection(db, 'userProfiles');
-    const q = query(usersRef, where('name', '==', name));
+    const q = query(usersRef, where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {
@@ -240,10 +237,10 @@ export const addAchievement = async (name, achievementId) => {
 };
 
 // Function to add discovered personality type
-export const addPersonalityTypeDiscovered = async (name, personalityType) => {
+export const addPersonalityTypeDiscovered = async (userId, personalityType) => {
   try {
     const usersRef = collection(db, 'userProfiles');
-    const q = query(usersRef, where('name', '==', name));
+    const q = query(usersRef, where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {
@@ -282,11 +279,11 @@ export const getLeaderboard = async (limitCount = 10) => {
   }
 };
 
-// Function to get user profile by name
-export const getUserProfile = async (name) => {
+// Function to get user profile by userId
+export const getUserProfile = async (userId) => {
   try {
     const usersRef = collection(db, 'userProfiles');
-    const q = query(usersRef, where('name', '==', name));
+    const q = query(usersRef, where('userId', '==', userId));
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {

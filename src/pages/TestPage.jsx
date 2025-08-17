@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import { useUser } from '@clerk/clerk-react';
 import { questions, answerOptions } from '../data/questions';
 import '../styles/TestPage.css';
 
 const TestPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
-  const [name, setName] = useState('');
-  const [nameSubmitted, setNameSubmitted] = useState(false);
+  const { user, isLoaded } = useUser();
   const navigate = useNavigate();
 
   const [direction, setDirection] = useState(1);
+
+  // Skip name input if user is authenticated
+  useEffect(() => {
+    if (isLoaded && user) {
+      // User is authenticated, skip name input
+    }
+  }, [user, isLoaded]);
 
   const handleAnswerSelect = (value) => {
     const newAnswers = [...answers];
@@ -24,7 +31,7 @@ const TestPage = () => {
       setDirection(1);
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      navigate('/results', { state: { answers: newAnswers, name } });
+      navigate('/results', { state: { answers: newAnswers } });
     }
   };
 
@@ -32,32 +39,6 @@ const TestPage = () => {
     if (currentQuestionIndex > 0) {
       setDirection(-1);
       setCurrentQuestionIndex(currentQuestionIndex - 1);
-    }
-  };
-
-  const cuteNames = ["pookie", "pingu", "mogumogu", "peekaboo", "bubbles", "mochi", "pompom", "booplet", "snugglebug",
-   "wigglywoo", "nibnib", "pipi", "zuzu", "chonky", "fluffin", "boopie", "nono", "tinky", "blibble",
-   "snickerdoodle", "cuppy", "gumdrop", "beebo", "muffin", "wubwub", "tutu", "momo", "sprinkles",
-   "giggles", "doodlebug", "pupperoo", "lala", "tinkletop", "oinky", "fizzfuzz", "peanut", "jiggles",
-   "cotton", "honeybun", "nibbles", "wiggles", "tofu", "tater", "jellybean", "fuzzle", "snugbug",
-   "tinykins", "booboop", "dumdum", "cheekyboo", "scootles", "mimi", "tingting", "flicka", "gigglypoof",
-   "baboo", "binky", "mushie", "twinkle", "wompwomp", "tickletoes", "noodle", "squishie", "doodoo",
-   "cutiepatootie", "schnookie", "puffin", "crumpet", "kiki", "bonbon", "teacup", "cuddlepuff",
-   "twinkie", "bopbop", "snugglemuff", "jiggy", "lulu", "blopblop", "mewmew", "choochu", "smolbean",
-   "wigglet", "skippy", "cheeky", "fruityloop", "gogo", "toto", "whoopsie", "squee", "shmoopie",
-   "puffypaws", "puddingpop", "fizzles", "rolypoly", "koko", "meepmeep", "tugboat", "cinnabun", "cloverbean",
-   "twinklepuff", "booboofluff", "chibi", "snuffly"];
-  
-  const generateRandomName = () => {
-    const randomName = cuteNames[Math.floor(Math.random() * cuteNames.length)];
-    setName(randomName.charAt(0).toUpperCase() + randomName.slice(1));
-  };
-
-  const handleNameSubmit = (e) => {
-    e.preventDefault();
-    if (name.trim()) {
-      setName(name.trim().charAt(0).toUpperCase() + name.trim().slice(1));
-      setNameSubmitted(true);
     }
   };
 
@@ -81,7 +62,19 @@ const TestPage = () => {
     }),
   };
 
-  if (!nameSubmitted) {
+  // Show loading while checking auth status
+  if (!isLoaded) {
+    return (
+      <div className="test-container container section">
+        <div className="test-card">
+          <h2>Loading...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  // If user is not authenticated, show name input form
+  if (!user) {
     return (
       <div className="test-container container section">
         <Helmet>
@@ -91,28 +84,25 @@ const TestPage = () => {
         <div className="test-card">
           <h2 className="welcome-heading">Welcome to the Test</h2>
           <p className="welcome-subheading">Please enter your name to begin.</p>
-          <form onSubmit={handleNameSubmit} className="name-form">
-            <div className="name-input-container">
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter your name"
-                className="name-input"
-              />
-              <button type="button" onClick={generateRandomName} className="btn random-name-btn">
-                Generate Random Name
-              </button>
-            </div>
-            <button type="submit" className="btn start-btn" disabled={!name.trim()}>
+          <div className="name-input-container">
+            <input
+              type="text"
+              placeholder="Enter your name"
+              className="name-input"
+            />
+            <button className="btn start-btn">
               Start Test
             </button>
-          </form>
+          </div>
+          <p className="auth-prompt">
+            For a better experience, <a href="/sign-in">sign in</a> to save your progress and earn rewards!
+          </p>
         </div>
       </div>
     );
   }
 
+  // If user is authenticated, start quiz directly
   return (
     <div className="test-container container section">
       <Helmet>
@@ -168,4 +158,4 @@ const TestPage = () => {
   );
 };
 
-export default TestPage; 
+export default TestPage;

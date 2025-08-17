@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useUser } from '@clerk/clerk-react';
 import { getUserProfile, getLeaderboard } from '../firebase/config';
 import { PERSONALITY_TYPES } from '../data/personalityTypes';
 import {
@@ -12,7 +13,8 @@ import {
 } from '../data/gamificationData';
 import '../styles/UserProfile.css';
 
-const UserProfile = ({ userName }) => {
+const UserProfile = () => {
+  const { user } = useUser();
   const [userProfile, setUserProfile] = useState(null);
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +25,7 @@ const UserProfile = ({ userName }) => {
       try {
         setLoading(true);
         const [profile, leaderboardData] = await Promise.all([
-          getUserProfile(userName),
+          getUserProfile(user.id),
           getLeaderboard(10)
         ]);
         
@@ -36,10 +38,10 @@ const UserProfile = ({ userName }) => {
       }
     };
 
-    if (userName) {
+    if (user) {
       fetchData();
     }
-  }, [userName]);
+  }, [user]);
 
   const getEarnedBadges = () => {
     if (!userProfile) return [];
@@ -76,7 +78,7 @@ const UserProfile = ({ userName }) => {
   };
 
   const getRank = () => {
-    return leaderboard.findIndex(user => user.name === userName) + 1;
+    return leaderboard.findIndex(user => user.name === user?.fullName || user.name === user?.email) + 1;
   };
 
   if (loading) {
@@ -118,7 +120,7 @@ const UserProfile = ({ userName }) => {
           <div className="level-badge">Lvl {currentLevel}</div>
         </div>
         <div className="profile-info">
-          <h1 className="profile-name">{userProfile.name}</h1>
+          <h1 className="profile-name">{userProfile.name || user?.fullName || user?.email}</h1>
           <div className="profile-stats">
             <div className="stat-item">
               <span className="stat-label">XP:</span>

@@ -1,24 +1,15 @@
+/* eslint-env node */
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { streamText, StreamingTextResponse } from 'ai';
+import { streamText } from 'ai';
 
-export const runtime = 'edge';
+// Shared logic to produce the report text (server-side only)
+async function generateReport(personalityType) {
+  const google = createGoogleGenerativeAI({
+    // Use Node env var. Do NOT use import.meta.env here.
+    apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
+  });
 
-export default async function POST(req) {
-  console.log('API route hit. Request body:', req.body);
-  console.log('API key present:', !!process.env.GOOGLE_API_KEY);
-
-  try {
-    const { prompt: personalityType } = req.body;
-
-    if (!personalityType) {
-      return new Response('Error: prompt is missing in the request body.', { status: 400 });
-    }
-
-    const google = createGoogleGenerativeAI({
-      apiKey: process.env.GOOGLE_API_KEY,
-    });
-
-    const customPrompt = `
+  const customPrompt = `
       You are an expert personality analyst. A user has taken a personality test and their type is ${personalityType}.
       Generate a concise, friendly, and analytical report based on their type.
       The report should follow this structure exactly, using markdown for formatting:
@@ -46,16 +37,43 @@ export default async function POST(req) {
       Generate the report now based on the type: ${personalityType}.
     `;
 
-    const result = await streamText({
-      model: google('models/gemini-pro'),
-      prompt: customPrompt,
-    });
+  const result = await streamText({
+    model: google('models/gemini-pro'),
+    prompt: customPrompt,
+  });
 
-    console.log('Successfully streamed response from AI.');
-    return new StreamingTextResponse(result.toReadableStream());
+  return result;
+}
 
+// Node/Express-style handler for vite-plugin-vercel-api and Vercel Node functions
+export default async function handler(req, res) {
+  try {
+    if (req.method === 'OPTIONS') {
+      res.status(204).end();
+      return;
+    }
+    if (req.method !== 'POST') {
+      res.status(405).send('Method Not Allowed');
+      return;
+    }
+
+    const { prompt: personalityType } = req.body || {};
+    if (!personalityType) {
+      res.status(400).send('Error: prompt is missing in the request body.');
+      return;
+    }
+
+    const result = await generateReport(personalityType);
+
+    // Send non-streamed text for compatibility
+    let fullText = '';
+    for await (const delta of result.textStream) {
+      fullText += delta;
+    }
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.status(200).send(fullText);
   } catch (error) {
     console.error('Error in API route:', error);
-    return new Response('An internal server error occurred.', { status: 500 });
+    res.status(500).send('An internal server error occurred.');
   }
 }

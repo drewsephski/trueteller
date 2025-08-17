@@ -2,11 +2,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import '../styles/LandingPage.css';
 import { Link } from 'react-router-dom';
-import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt } from 'react-icons/fa';
+import { FaPencilAlt, FaHeart, FaPaintBrush, FaLaughBeam, FaBolt, FaBrain, FaRobot } from 'react-icons/fa';
 import { GiCrystalBall } from 'react-icons/gi';
 import logo from '../assets/trueyouteller_logo-removebg.png';
 import FriendsQuiz from '../components/MiniGames/friends/FriendsQuiz';
 import InsideOutQuiz from '../components/MiniGames/insideOut/InsideOutQuiz';
+import MiniQuiz from '../components/MiniGames/miniQuiz/MiniQuiz';
 
 const LandingPage = () => {
   return (
@@ -72,12 +73,28 @@ const LandingPage = () => {
         <div className="mini-games-container">
           <FriendsQuiz />
           <InsideOutQuiz />
+          <MiniQuiz />
         </div>
       </section>
 
       <section className="section container final-cta">
         <h2>Ready to Discover Your True Self?</h2>
         <Link to="/test" className="btn btn-primary bouncing">Let's Go!</Link>
+      </section>
+
+      <section className="section container feature-cta">
+        <h2>Explore More Features</h2>
+        <p className="subtitle">Try our quick personality test or get AI-powered insights!</p>
+        <div className="cta-buttons-container">
+          <Link to="/mini-quiz" className="btn btn-cta btn-quiz">
+            <FaBrain className="cta-icon" />
+            Quick Personality Test
+          </Link>
+          <Link to="/ai-report" className="btn btn-cta btn-ai">
+            <FaRobot className="cta-icon" />
+            AI-Powered Insights
+          </Link>
+        </div>
       </section>
     </div>
   );

@@ -12,6 +12,9 @@ export default function AIReportPage() {
     error,
   } = useCompletion({
     api: '/api/generate',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
 
   return (
@@ -42,6 +45,10 @@ export default function AIReportPage() {
           {isLoading ? 'Generating...' : 'Generate Report'}
         </button>
       </form>
+      
+      <div style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
+        Note: This feature requires a Google API key to be configured in the environment variables.
+      </div>
 
       {error && (
         <div style={{ color: 'red', border: '1px solid red', padding: '1rem', borderRadius: '4px', marginBottom: '1rem' }}>

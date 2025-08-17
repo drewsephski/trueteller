@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, Link } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
 import { PERSONALITY_TYPES } from '../data/personalityTypes';
 import { questions } from '../data/questions';
 import { saveTestResult, getOrCreateUserProfile, updateUserXP, updateUserStreak, addAchievement, addPersonalityTypeDiscovered } from '../firebase/config';
@@ -10,7 +11,8 @@ import '../styles/ResultsPage.css';
 
 const ResultsPage = () => {
   const location = useLocation();
-  const { answers, name } = location.state || { answers: [], name: '' };
+  const { answers } = location.state || { answers: [] };
+  const { user } = useUser();
   const hasSaved = useRef(false);
   const [showSocialShare, setShowSocialShare] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
@@ -47,13 +49,13 @@ const ResultsPage = () => {
   // Process gamification features when result is available
   useEffect(() => {
     const processGamification = async () => {
-      if (!result || !name || answers.length === 0 || hasSaved.current) return;
+      if (!result || !user || answers.length === 0 || hasSaved.current) return;
 
       hasSaved.current = true;
       
       try {
         // Get or create user profile
-        const profile = await getOrCreateUserProfile(name);
+        const profile = await getOrCreateUserProfile(user.id);
         setUserProfile(profile);
         
         // Calculate XP to award
@@ -81,19 +83,19 @@ const ResultsPage = () => {
         }
         
         // Add discovered personality type
-        await addPersonalityTypeDiscovered(name, result.code);
+        await addPersonalityTypeDiscovered(user.id, result.code);
         
         // Update user XP and level
-        const xpResult = await updateUserXP(name, totalXP);
+        const xpResult = await updateUserXP(user.id, totalXP);
         setXpGained(totalXP);
         
         // Update streak
-        const newStreak = await updateUserStreak(name, new Date());
+        await updateUserStreak(user.id, new Date());
         
         // Add achievements
         if (achievements.length > 0) {
           for (const achievement of achievements) {
-            await addAchievement(name, achievement.id);
+            await addAchievement(user.id, achievement.id);
           }
           setNewAchievements(achievements);
         }
@@ -104,7 +106,7 @@ const ResultsPage = () => {
         }
         
         // Save the test result
-        await saveTestResult(name, result, answers);
+        await saveTestResult(user.id, result, answers);
         
         console.log('Gamification processed successfully!');
       } catch (error) {
@@ -114,7 +116,7 @@ const ResultsPage = () => {
     };
 
     processGamification();
-  }, [result, name, answers]);
+  }, [result, user, answers]);
 
   if (!result) {
     return (
@@ -282,7 +284,7 @@ const ResultsPage = () => {
       {showSocialShare && (
         <SocialShare
           result={result}
-          userName={name}
+          userName={user?.firstName || user?.fullName || 'User'}
           onClose={() => setShowSocialShare(false)}
         />
       )}

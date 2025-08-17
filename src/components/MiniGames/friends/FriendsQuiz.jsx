@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { quizData } from '../../../data/mini-games/friendsQuizData';
 import Question from './Question';
 import Result from './Result';
@@ -32,6 +32,48 @@ const FriendsQuiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState(characterScores);
   const [result, setResult] = useState(null);
+  const [resultKey, setResultKey] = useState(null);
+
+  const STORAGE_KEY = 'friendsQuizState_v1';
+
+  // Load saved state on mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw);
+      if (typeof saved !== 'object' || saved === null) return;
+
+      if (saved.scores && typeof saved.currentQuestionIndex === 'number') {
+        setScores({ ...characterScores, ...saved.scores });
+        setCurrentQuestionIndex(saved.currentQuestionIndex);
+        setIsQuizStarted(!!saved.isQuizStarted);
+      }
+
+      if (saved.resultKey) {
+        setResultKey(saved.resultKey);
+        const reconstructed = quizData.results[saved.resultKey];
+        if (reconstructed) setResult(reconstructed);
+      }
+    } catch (e) {
+      console.warn('Failed to load saved Friends quiz state:', e);
+    }
+  }, []);
+
+  // Persist state on changes
+  useEffect(() => {
+    const toSave = {
+      isQuizStarted,
+      currentQuestionIndex,
+      scores,
+      resultKey,
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+    } catch (e) {
+      console.warn('Failed to persist Friends quiz state:', e);
+    }
+  }, [isQuizStarted, currentQuestionIndex, scores, resultKey]);
 
   const handleAnswer = (value) => {
     const questionId = quizData.questions[currentQuestionIndex].id;
@@ -54,6 +96,7 @@ const FriendsQuiz = () => {
     const winner = Object.keys(finalScores).reduce((a, b) =>
         finalScores[a] > finalScores[b] ? a : b
     );
+    setResultKey(winner);
     setResult(quizData.results[winner]);
   };
 
@@ -62,7 +105,21 @@ const FriendsQuiz = () => {
     setCurrentQuestionIndex(0);
     setScores(characterScores);
     setResult(null);
+    setResultKey(null);
   }
+
+  const resetProgress = () => {
+    setIsQuizStarted(false);
+    setCurrentQuestionIndex(0);
+    setScores(characterScores);
+    setResult(null);
+    setResultKey(null);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {
+      console.warn('Failed to clear Friends quiz state:', e);
+    }
+  };
 
   if (!isQuizStarted) {
     return (
@@ -77,6 +134,9 @@ const FriendsQuiz = () => {
           </p>
           <button className="start-quiz-btn" onClick={() => setIsQuizStarted(true)}>
             Start Quiz
+          </button>
+          <button className="start-quiz-btn" onClick={resetProgress} style={{ marginTop: '12px' }}>
+            Reset Progress
           </button>
         </div>
       </div>

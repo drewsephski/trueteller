@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react(),
-    vercelApi(),
+    vercelApi({
+      debugOptions: ['apiFiles', 'apiRoutes', 'failedRouteImports'],
+    }),
   ],
 });

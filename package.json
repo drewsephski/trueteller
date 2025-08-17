@@ -12,6 +12,8 @@
   "dependencies": {
     "@ai-sdk/google": "^2.0.6",
     "@ai-sdk/react": "^2.0.14",
+    "@clerk/clerk-react": "^5.42.1",
+    "@clerk/themes": "^2.4.10",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.12",
     "clsx": "^2.1.1",
